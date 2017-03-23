@@ -1,8 +1,13 @@
 <?php 
    class Test extends CI_Controller {
   
-      public function index() { 
-         $this->load->model('user'); 
-      } 
+      $this->load->model('User');
+			
+         $data = array( 
+            'userId' => '3', 
+            'fname' => 'Daniel' 
+         ); 
+			
+         $this->User->insert($data); 
    } 
 ?>
