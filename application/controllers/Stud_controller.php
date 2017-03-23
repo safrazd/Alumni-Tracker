@@ -24,7 +24,7 @@
 			
          $this->Stud_Model->insert($data); 
    
-         $query = $this->db->get("stud"); 
+         $query = $this->db->get("users"); 
          $data['records'] = $query->result(); 
       }  
    } 

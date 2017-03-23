@@ -6,7 +6,7 @@
       } 
    
       public function insert($data) { 
-         if ($this->db->insert("stud", $data)) { 
+         if ($this->db->insert("users", $data)) { 
             return true; 
          } 
       } 
