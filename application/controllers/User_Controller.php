@@ -16,7 +16,7 @@
          ); 
 			
          $this->User_Model->insert($data); 
- 
+			echo "Hello";
       }
    }	  
   
