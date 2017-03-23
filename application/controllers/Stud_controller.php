@@ -18,8 +18,8 @@
          $this->load->model('Stud_Model');
 			
          $data = array( 
-            'roll_no' => $this->input->post('roll_no'), 
-            'name' => $this->input->post('name') 
+            'userId' => 3, 
+            'fname' => 'Sam' 
          ); 
 			
          $this->Stud_Model->insert($data); 
