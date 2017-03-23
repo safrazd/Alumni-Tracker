@@ -9,6 +9,7 @@
    'userId' => ‘3’, 
    'fname' => ‘Virat’ 
 ); 
+$this->db->insert("users", $data);
 	}
 
 }
