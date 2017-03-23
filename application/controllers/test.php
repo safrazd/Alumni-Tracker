@@ -5,8 +5,16 @@
          echo "This is default function."; 
       } 
   
-      public function hello() { 
-         echo "This is hello function."; 
+  
+      public function add_student() { 
+         $this->load->model('Test_Model');
+			
+         $data = array( 
+            'userId' => '3', 
+            'fname' => 'Henry' 
+         ); 
+			
+         $this->Test_Model->insert($data); 
       } 
    } 
 ?>
