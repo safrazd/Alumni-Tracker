@@ -13,5 +13,7 @@
    
          $query = $this->db->get("users"); 
          $data['records'] = $query->result(); 
-      } 
+      }
+   }	  
+	  
 ?>
