@@ -1,0 +1,43 @@
+#cover{
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index:-1;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.col-lg-4{
+  box-shadow: 10px 10px 5px grey;
+}
+
+body{
+  position:relative;
+  padding-top: 50px;
+  z-index:10;
+}
+
+#webnav{
+  position:relative;
+  padding-bottom: 5px;
+  height:30px;
+  z-index:10;
+}
+
+footer{
+  padding-bottom:10px;
+}
