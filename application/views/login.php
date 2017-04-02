@@ -7,8 +7,10 @@
 
   <title>Welcome To The Website For UWI Alumni</title>
   <link rel="icon" href="../../favicon.ico">
-  <link rel="stylesheet" href="css/style.css">
-
+  <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
+  <script type = 'text/javascript' src = "<?php echo base_url();?>js/prefixfree.min.js"></script>
+  <script type = 'text/javascript' src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+  
     <style>
 	.body{
 	position: absolute;
@@ -23,10 +25,8 @@
 	-webkit-filter: opacity(75%);
 	z-index: 0;
 }
-</style>
-
-    <script src="js/prefixfree.min.js"></script>
-
+	</style>
+	
 </head>
 
 <body>
@@ -46,11 +46,11 @@
 				<input type="password" placeholder="password" name="password"><br>
 				<input type="button" value="Login">
 				<p>------------------------------ OR -----------------------------</p>
-				<input type="button" value="Register">
+				<form action="<?php echo site_url('register') ?>">
+				<input type="button" onclick="window.location ='<?php echo site_url('register')?>'" value="Register">
+				</form>
 				<p>Have you forgotten your<br><a href="#" class="link"><strong>username</strong></a> or <a href="#" class="link"><strong>password</strong></a>?</p>
 		</div>
-
-  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
 
 </body>
 
