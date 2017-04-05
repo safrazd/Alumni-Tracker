@@ -1,0 +1,6 @@
+-If you are downloading the Alumni-Tracker respository from github directly,
+then ensure that the downloaded file is renamed to 'Alumni-Tracker' else it 
+would not run properly.
+
+-Also the css,images and js folders are in the root folder. See the login and 
+registration view files for an understanding of how those folders are referenced.
