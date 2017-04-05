@@ -16,7 +16,7 @@
 	     bottom: -40px;
 	     width: auto;
 	     height: auto;
-	     background-image: url("../images/back.jpg");
+	     background-image: url("<?php echo base_url();?>images/back.jpg");
 	     background-size: cover;
 	     -webkit-filter: opacity(75%);
 	     z-index: 0;
@@ -27,7 +27,7 @@
         <div class = "body"></div>
         <div class = "grad"></div>
         <div class ="header">
-            <div><img src="../images/logo.png" alt="" width=100px height=100px></div>
+            <div><img src="<?php echo base_url();?>images/logo.png" alt="" width=100px height=100px></div>
         </div>
         <div class ="search">
 			<input type="text" placeholder="Search..." name="search" />

@@ -46,9 +46,9 @@
 				<input type="password" placeholder="password" name="password"><br>
 				<input type="button" value="Login">
 				<p>------------------------------ OR -----------------------------</p>
-				<form action="<?php echo site_url('register') ?>">
-				<input type="button" onclick="window.location ='<?php echo site_url('register')?>'" value="Register">
-				</form>
+		
+				<input type="button" onclick="window.location ='<?php echo site_url('welcome/register')?>'" value="Register">
+				
 				<p>Have you forgotten your<br><a href="#" class="link"><strong>username</strong></a> or <a href="#" class="link"><strong>password</strong></a>?</p>
 		</div>
 
