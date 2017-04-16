@@ -30,7 +30,7 @@
   <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
 </div>
 
-    <form action='' method='post'>
+    <form action='test.php' method='post'>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -46,54 +46,29 @@
         include "lib.php";
         $sql = "SELECT * FROM `alumni` where alumni.verified='No'";
         $res = $conn->query($sql);
-        $res2  = mysql_query($sql);
         $count = $res->num_rows;
         if ($res){
-            $row = $res->fetch_assoc();
-            while ($row != null){
-
-   
+            while (($row = $res-> fetch_assoc())!=null){
                 // print the rows of the table
                 echo "<tr>";
-                echo "<td>" . $row['alumniId'] . "</td>";
-                echo "<td>" . $row['fName'] . "</td>";
+                echo "<td>"; 
+				echo "<input name='alumni[]'". "value='". $row['alumniId']."' readonly>";
+				echo "</td>";
+				echo "<td>" . $row['fName'] . "</td>";
                 echo "<td>" . $row['lName'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>"; 
-                echo "<td> <select name=\"select[]\" id=\"select\">";
-                echo "<option value=\'No\'>No</option>";
-                echo "<option value=\'Yes\'>Yes</option>";
+                echo "<td> <select name='select[]'>";
+                echo "<option value='No'>No</option>";
+                echo "<option value='Yes'>Yes</option>";
                 echo "</select>";
                 echo "</td>";
                 echo "</tr>";
-
-                $id[]=$row['alumniId'];
-                $row = $res->fetch_assoc();
             }
+			 echo "</tbody></table>";
+			 echo "<input type='submit' name='update'>";
         }
-        
     ?>
 
-    </tbody>
-    </table>
-    <?php
-    echo "<input type='submit' name='update' value='UPDATE' />";
-    ?>
-
-    </form>
-
-    <?php
-    if(isset($_POST['update'])){
     
-    for($i=0;$i<$count;$i++){
-        if("select[][$i].val('Yes')"){
-            $sql1 = "UPDATE `alumni` SET verified='Yes' WHERE alumni.alumniId='$id[$i]'";
-            $result=$conn->query($sql1);
-        }
-    }
-    }
-
-    ?>
-
-     
 </body>
 </html>
