@@ -30,7 +30,7 @@
   <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
 </div>
 
-    <form action='test.php' method='post'>
+    <form action='' method='post'>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -65,10 +65,25 @@
                 echo "</tr>";
             }
 			 echo "</tbody></table>";
-			 echo "<input type='submit' name='update'>";
+			 echo "<input type='submit' name='update' onclick='window.location.reload(true);'>";
         }
+			
     ?>
+	
+	<?php
+	if (isset($_POST['update'])){
+	$alumniValues= $_POST['alumni'];
+	$selectValues= $_POST['select'];
+		//print_r($alumniValues);
+		//print_r($selectValues);
+		for ($i=0; $i<sizeof($alumniValues);$i++){
+			$sql1 = "UPDATE `alumni` SET verified='$selectValues[$i]' WHERE alumni.alumniId='$alumniValues[$i]'";
+			$result=$conn->query($sql1);
+		}
+		 echo "<meta http-equiv='refresh' content='0'>";
+	}
+	?>
 
-    
+ 
 </body>
 </html>
