@@ -2,7 +2,7 @@
 
 function displayprof(){
 require("dbconnect.php");
-$sql="SELECT alumni.fname, alumni.lname, company.companyName, degree.degreeName, degree.degreeClass, degree.yearGrad
+$sql="SELECT alumni.alumniId, alumni.fname, alumni.lname, company.companyName, degree.degreeName, degree.degreeClass, degree.yearGrad
  FROM ((alumni
  LEFT JOIN company ON alumni.alumniId=company.alumniId)
  LEFT JOIN degree ON alumni.alumniId=degree.alumniId)
@@ -26,7 +26,7 @@ $count=0;
         
         echo"<div class=\"col-md-4\">
                 <div class=\"thumbnail\">
-                    <a href=\"profile.jpg\" target=\"_blank\">
+                    <a href='profiles.php?alumniId=".$row["alumniId"]."'>
                         <img src=\"profile.jpg\" alt=\"Lights\" style=\"width:100%; height:300px\">
                         <div class=\"caption text-center\">
                             <h4 id=\"name\" >".$row["fname"]." ".$row["lname"]."</h3>
