@@ -26,7 +26,7 @@ $count=0;
         
         echo"<div class=\"col-md-4\">
                 <div class=\"thumbnail\">
-                    <a href='profiles.php?alumniId=".$row["alumniId"]."'>
+                    <a href='viewprofile.php?alumniId=".$row["alumniId"]."'>
                         <img src=\"profile.jpg\" alt=\"Lights\" style=\"width:100%; height:300px\">
                         <div class=\"caption text-center\">
                             <h4 id=\"name\" >".$row["fname"]." ".$row["lname"]."</h3>
