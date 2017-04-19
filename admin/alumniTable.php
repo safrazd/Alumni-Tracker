@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -19,16 +20,19 @@
     <ul class="nav navbar-nav">
       <li><a href="home.php">Home</a></li>
       <li class="active"><a href="alumniTable.php">Almuni Table</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
+      <li><a href="export.php">Export</a></li>
     </ul>
   </div>
 </nav>
-  
-<div class="container">
-  <h3>Basic Navbar Example</h3>
-  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+
+<div id="background">
+  <img src="images/computer_code.jpg" alt="background" height="100%" width="100%">
 </div>
+  
+<div class="container" id="hold">
+  <h3>Welcome to the Alumni Table</h3>
+  <p>Here you can approve all pending accounts that need verification by changing the verified value to Yes and clicking submit.</p>
+
 
     <form action='' method='post'>
     <table class="table table-bordered">
@@ -46,7 +50,6 @@
         include "lib.php";
         $sql = "SELECT * FROM `alumni` where alumni.verified='No'";
         $res = $conn->query($sql);
-        $count = $res->num_rows;
         if ($res){
             while (($row = $res-> fetch_assoc())!=null){
                 // print the rows of the table
@@ -58,14 +61,16 @@
                 echo "<td>" . $row['lName'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>"; 
                 echo "<td> <select name='select[]'>";
-                echo "<option value='No'>No</option>";
-                echo "<option value='Yes'>Yes</option>";
+                echo "<option value=\"No\">No</option>";
+                echo "<option value=\"Yes\">Yes</option>";
                 echo "</select>";
                 echo "</td>";
                 echo "</tr>";
             }
 			 echo "</tbody></table>";
-			 echo "<input type='submit' name='update' onclick='window.location.reload(true);'>";
+             echo "<div align=center>";
+			 echo "<input type='submit' name='update' class=\"btn btn-success\" onclick='window.location.reload(true);'>";
+             echo "</div>";
         }
 			
     ?>
@@ -83,7 +88,7 @@
 		 echo "<meta http-equiv='refresh' content='0'>";
 	}
 	?>
-
+</div>
  
 </body>
 </html>
