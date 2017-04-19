@@ -9,7 +9,7 @@
   <link rel="icon" href="../../favicon.ico">
   <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
   <script type = 'text/javascript' src = "<?php echo base_url();?>js/prefixfree.min.js"></script>
-  <script type = 'text/javascript' src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+  <script type = 'text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>
   
     <style>
 	.body{
@@ -20,7 +20,7 @@
 	bottom: -40px;
 	width: auto;
 	height: auto;
-	background-image: url("images/back.jpg");
+	background-image: url("<?php echo base_url();?>images/back.jpg");
 	background-size: cover;
 	-webkit-filter: opacity(75%);
 	z-index: 0;
@@ -39,7 +39,7 @@
 		</div>
 		<br>
 		<div class = "head">
-			<div><img src="images/logo.png"alt="" width="50%" height="50%"></div>
+			<div><img src="<?php echo base_url();?>images/logo.png"alt="" width="50%" height="50%"></div>
 		</div>
 		<div class="login">
 				<input type="text" placeholder="username" name="user"><br>
