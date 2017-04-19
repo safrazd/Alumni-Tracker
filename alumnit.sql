@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2017 at 09:45 PM
+-- Generation Time: Apr 20, 2017 at 01:23 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -38,6 +38,13 @@ CREATE TABLE `admin` (
   `timeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`adminId`, `fName`, `lName`, `email`, `password`, `timeCreated`) VALUES
+(1, 'kyle', 'defrietas', 'kyle@gmail.com', 'kyle', '2017-04-19 18:13:53');
+
 -- --------------------------------------------------------
 
 --
@@ -59,9 +66,11 @@ CREATE TABLE `alumni` (
 -- Dumping data for table `alumni`
 --
 
-INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES(1, 'Roger', 'Jones', 'roger.jones@gmail.com', 'roger', '2017-04-11 05:54:10', 'No');
-INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES(2, 'Mike', 'Mick', 'Mikey@gmail.com', 'mike', '2017-04-11 05:52:50', 'Yes');
-INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES(3, 'Lloyd', 'Jeff', 'lj@hotmail.com', 'lloyd', '2017-04-11 05:52:50', 'Yes');
+INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES
+(1, 'Roger', 'Jones', 'roger.jones@gmail.com', 'roger', '2017-04-19 22:11:30', 'No'),
+(2, 'Mike', 'Mick', 'Mikey@gmail.com', 'mike', '2017-04-19 22:11:30', 'No'),
+(3, 'Lloyd', 'Jeff', 'lj@hotmail.com', 'lloyd', '2017-04-19 22:11:30', 'No'),
+(4, 'darnell', 'bruce', 'darnellbr625@yahoo.com', '70ccd9007338d6d81dd3b6271621b9cf9a97ea00', '2017-04-19 22:11:54', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -73,10 +82,19 @@ DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `companyId` int(20) NOT NULL,
   `companyName` varchar(50) NOT NULL,
+  `companyDescription` varchar(255) NOT NULL,
   `country` varchar(50) NOT NULL,
   `occupation` varchar(50) NOT NULL,
-  `alumniId` int(20) NOT NULL
+  `alumniId` int(20) NOT NULL,
+  `checked` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`companyId`, `companyName`, `companyDescription`, `country`, `occupation`, `alumniId`, `checked`) VALUES
+(1, 'Loco', '', '', '', 4, 'checked');
 
 -- --------------------------------------------------------
 
@@ -93,6 +111,15 @@ CREATE TABLE `degree` (
   `alumniId` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `degree`
+--
+
+INSERT INTO `degree` (`degreeId`, `degreeName`, `degreeClass`, `yearGrad`, `alumniId`) VALUES
+(1, 'Information Technology', 'Bsc', 2011, 4),
+(2, 'Computer Science', 'Bsc', 2005, 2),
+(3, 'Engineering', 'Bsc', 2021, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -102,9 +129,9 @@ CREATE TABLE `degree` (
 DROP TABLE IF EXISTS `link`;
 CREATE TABLE `link` (
   `linkId` int(20) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  `facebook` varchar(100) NOT NULL,
-  `linkedin` varchar(100) NOT NULL,
+  `image` int(100) NOT NULL,
+  `facebook` int(100) NOT NULL,
+  `linkedin` int(100) NOT NULL,
   `alumniId` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -150,7 +177,8 @@ ALTER TABLE `company`
 --
 ALTER TABLE `degree`
   ADD PRIMARY KEY (`degreeId`),
-  ADD UNIQUE KEY `alumniId` (`alumniId`);
+  ADD UNIQUE KEY `alumniId` (`alumniId`),
+  ADD KEY `alumniId_2` (`alumniId`);
 
 --
 -- Indexes for table `link`
@@ -174,22 +202,22 @@ ALTER TABLE `personal`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `adminId` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `adminId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `alumni`
 --
 ALTER TABLE `alumni`
-  MODIFY `alumniId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `alumniId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `companyId` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `companyId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `degree`
 --
 ALTER TABLE `degree`
-  MODIFY `degreeId` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `degreeId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `link`
 --
