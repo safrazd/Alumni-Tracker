@@ -33,12 +33,16 @@
 <body>
     
 
+<div id="background">
+  <img src="images/computer_code.jpg" alt="background" height="100%" width="100%">
+</div>
+
 <br>
 
 <div id="table">
 
 
-<form action="">
+<form action="<?php echo site_url('admin/download')?>" method="post">
     
 
 <div class="container" id="hold">
@@ -57,11 +61,11 @@
         </thead>
         <tbody>
     <?php
-		
+      
         $sql = "SELECT * FROM `alumni`";
         $res = $this->db->query($sql);
         
-        foreach ($res->result_array() as $row){
+         foreach ($res->result_array() as $row){
             ?>
             <tr>
 
@@ -86,8 +90,8 @@
 </div>
 </div>
 <div style="text-align:center;">   
-    <input type="button" name="export"  value="Register">
-    <input type="submit" name="export2" class="btn btn-success" >
+    <input type="submit" name="export" class="btn btn-success" value="Export All to Excel">
+    <input type="submit" name="export2" class="btn btn-success" value="Export Selected to Excel">
 
 </div>
 
@@ -95,24 +99,11 @@
 
 
 </form>
+
+
+    
+
      
 </body>
 </html>
 
-<script>
-$(document).ready(function(){
-    $('button').click(function(){
-        var excel_data = $('#hold').html();
-		var string= <?php echo site_url("admin/download") ?>
-        var page = string?data=" + excel_data;
-        window.location = page;
-    });
-
-    $('#export2').click(function(){
-        var excel_data = $('#hold').html();
-        var page = "excel.php?data=" + excel_data;
-        window.location = page;
-    });
-});
-
-</script>

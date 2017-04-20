@@ -10,15 +10,15 @@ Class Excel extends CI_Model //checks if user logging in
 
 	function export(){
 if(isset($_POST["export"])){
-    require "lib.php";
+
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Disposition: attachment; filename=datam.csv');
     $output= fopen("php://output", "w");
     fputcsv($output, array('AlumniId', 'First Name', 'Last Name', 'Email Address', 'Password', 'Time Created', 'Verified'));
     $query = "SELECT * FROM `alumni`";
-    $res=$conn->query($query);
+    $res = $this->db->query($query);
 
-    while($row= mysqli_fetch_assoc($res)){
+    foreach ($res->result_array() as $row){
         fputcsv($output, $row);
     }
     fclose($output);
