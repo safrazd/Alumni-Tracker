@@ -38,7 +38,7 @@
 <div id="table">
 
 
-<form action="excel.php" method="post">
+<form>
     
 
 <div class="container" id="hold">

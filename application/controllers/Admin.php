@@ -17,7 +17,12 @@ public function index()
 	public function export()
 	{
 		$this->load->view('export_table');
-		
+	}
+	
+	public function download()
+	{
+		$this->load->model('excel');
+		$this->excel->export();
 	}
 	
 	
