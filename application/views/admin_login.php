@@ -45,7 +45,7 @@
 		<div class="login">
 				<input type="text" name="email" placeholder="Email" value=""<br>
 				<input type="password" name="password" placeholder="Password" value = ""><br>
-				<input type="submit" value="Login">
+				<input type="submit"  value="Login">
 				<p>------------------------------ OR -----------------------------</p>
 		
 				<input type="button" onclick="window.location ='<?php echo site_url('welcome/register')?>'" value="Register">
