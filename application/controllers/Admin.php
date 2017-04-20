@@ -20,6 +20,12 @@ public function index()
 		
 	}
 	
+	public function download()
+	{
+		$this->load->model('excel');
+		$this->excel->export();
+	}
+	
 	
 }
 ?>

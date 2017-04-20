@@ -33,12 +33,16 @@
 <body>
     
 
+<div id="background">
+  <img src="images/computer_code.jpg" alt="background" height="100%" width="100%">
+</div>
+
 <br>
 
 <div id="table">
 
 
-<form action="excel.php" method="post">
+<form action="<?php echo site_url('admin/download')?>" method="post">
     
 
 <div class="container" id="hold">
@@ -57,11 +61,11 @@
         </thead>
         <tbody>
     <?php
-		
+      
         $sql = "SELECT * FROM `alumni`";
         $res = $this->db->query($sql);
         
-        foreach ($res->result_array() as $row){
+         foreach ($res->result_array() as $row){
             ?>
             <tr>
 
@@ -95,23 +99,11 @@
 
 
 </form>
+
+
+    
+
      
 </body>
 </html>
 
-<script>
-$(document).ready(function(){
-    $('#export').click(function(){
-        var excel_data = $('#hold').html();
-        var page = excel.php?data=" + excel_data;
-        window.location = page;
-    });
-
-    $('#export2').click(function(){
-        var excel_data = $('#hold').html();
-        var page = "excel.php?data=" + excel_data;
-        window.location = page;
-    });
-});
-
-</script>
