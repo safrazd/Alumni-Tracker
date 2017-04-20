@@ -38,7 +38,7 @@
 <div id="table">
 
 
-<form>
+<form action="">
     
 
 <div class="container" id="hold">
