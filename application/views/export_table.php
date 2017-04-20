@@ -86,8 +86,8 @@
 </div>
 </div>
 <div style="text-align:center;">   
-    <input type="submit" name="export" class="btn btn-success" value="Export All to Excel">
-    <input type="submit" name="export2" class="btn btn-success" value="Export Selected to Excel">
+    <input type="button" name="export"  value="Register">
+    <input type="submit" name="export2" class="btn btn-success" >
 
 </div>
 
@@ -101,9 +101,10 @@
 
 <script>
 $(document).ready(function(){
-    $('#export').click(function(){
+    $('button').click(function(){
         var excel_data = $('#hold').html();
-        var page = excel.php?data=" + excel_data;
+		var string= <?php echo site_url("admin/download") ?>
+        var page = string?data=" + excel_data;
         window.location = page;
     });
 
