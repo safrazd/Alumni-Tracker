@@ -62,7 +62,7 @@ $count=0;
         $image= "images/".$row['image'];
         echo"<div class=\"col-md-4\">
                 <div class=\"thumbnail\">
-                    <a href='".site_url('admin/profile?alumniId=1')."'>
+                    <a href='".site_url('admin/profile?alumniId='.$row["alumniId"])."'>
                         <img src='".base_url($image)."' alt=\"Lights\" style=\"width:100%; height:300px\">
                         
 						<div class=\"caption text-center\">
