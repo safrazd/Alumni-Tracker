@@ -157,7 +157,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 					
 					
 					";
-					if($row["checked"]=="checked"){
+					if($row["company_visible"]=="checked"){
 				echo"
 					<div class=\"tab-pane text-style\" id=\"tab4\">
                         <div class=\"page-header \">
