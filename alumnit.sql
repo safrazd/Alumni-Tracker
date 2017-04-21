@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2017 at 08:18 AM
+-- Generation Time: Apr 21, 2017 at 04:45 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -42,7 +42,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`adminId`, `fName`, `lName`, `email`, `password`, `timeCreated`) VALUES(1, 'Kyle', 'Defreitas', 'kyle@gmail.com', 'kyle', '2017-04-20 06:15:15');
+INSERT INTO `admin` (`adminId`, `fName`, `lName`, `email`, `password`, `timeCreated`) VALUES
+(1, 'Kyle', 'Defreitas', 'kyle@gmail.com', 'kyle', '2017-04-20 06:15:15');
 
 -- --------------------------------------------------------
 
@@ -65,10 +66,11 @@ CREATE TABLE `alumni` (
 -- Dumping data for table `alumni`
 --
 
-INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES(1, 'Roger', 'Jones', 'roger.jones@gmail.com', 'roger', '2017-04-20 06:16:42', 'Yes');
-INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES(2, 'Mike', 'Mick', 'Mikey@gmail.com', 'mike', '2017-04-11 05:52:50', 'Yes');
-INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES(3, 'Lloyd', 'Jeff', 'lj@hotmail.com', 'lloyd', '2017-04-11 05:52:50', 'Yes');
-INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES(4, 'darnell', 'bruce', 'darnellbr625@yahoo.com', '70ccd9007338d6d81dd3b6271621b9cf9a97ea00', '2017-04-13 19:55:00', 'Yes');
+INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES
+(1, 'Roger', 'Jones', 'roger.jones@gmail.com', 'roger', '2017-04-20 06:16:42', 'Yes'),
+(2, 'Mike', 'Mick', 'Mikey@gmail.com', 'mike', '2017-04-11 05:52:50', 'Yes'),
+(3, 'Lloyd', 'Jeff', 'lj@hotmail.com', 'lloyd', '2017-04-11 05:52:50', 'Yes'),
+(4, 'darnell', 'bruce', 'darnellbr625@yahoo.com', '70ccd9007338d6d81dd3b6271621b9cf9a97ea00', '2017-04-13 19:55:00', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,8 @@ CREATE TABLE `company` (
 -- Dumping data for table `company`
 --
 
-INSERT INTO `company` (`companyId`, `companyName`, `companyDescription`, `country`, `occupation`, `alumniId`, `company_visible`) VALUES(1, 'Mopper', '', '', '', 4, 'not Checked');
+INSERT INTO `company` (`companyId`, `companyName`, `companyDescription`, `country`, `occupation`, `alumniId`, `company_visible`) VALUES
+(1, 'Mopper', '', '', '', 1, 'checked');
 
 -- --------------------------------------------------------
 
@@ -112,9 +115,10 @@ CREATE TABLE `degree` (
 -- Dumping data for table `degree`
 --
 
-INSERT INTO `degree` (`degreeId`, `degreeName`, `degreeClass`, `yearGrad`, `alumniId`) VALUES(1, 'Information Technology', 'Bsc', 2011, 4);
-INSERT INTO `degree` (`degreeId`, `degreeName`, `degreeClass`, `yearGrad`, `alumniId`) VALUES(2, 'Computer Science', 'Bsc', 2005, 2);
-INSERT INTO `degree` (`degreeId`, `degreeName`, `degreeClass`, `yearGrad`, `alumniId`) VALUES(3, 'Engineering', 'Bsc', 2021, 3);
+INSERT INTO `degree` (`degreeId`, `degreeName`, `degreeClass`, `yearGrad`, `alumniId`) VALUES
+(1, 'Information Technology', 'Bsc', 2011, 1),
+(2, 'Computer Science', 'Bsc', 2005, 2),
+(3, 'Engineering', 'Bsc', 2021, 3);
 
 -- --------------------------------------------------------
 
@@ -130,6 +134,14 @@ CREATE TABLE `link` (
   `linkedin` varchar(100) NOT NULL,
   `alumniId` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `link`
+--
+
+INSERT INTO `link` (`linkId`, `image`, `facebook`, `linkedin`, `alumniId`) VALUES
+(2, 'pic1.jpg', '', '', 2),
+(3, 'pic2.jpg', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -150,7 +162,8 @@ CREATE TABLE `personal` (
 -- Dumping data for table `personal`
 --
 
-INSERT INTO `personal` (`personalId`, `contactNo`, `birthCountry`, `alumniId`, `display_personal`) VALUES(1, 6251130, 'Canada', 4, 'true');
+INSERT INTO `personal` (`personalId`, `contactNo`, `birthCountry`, `alumniId`, `display_personal`) VALUES
+(1, 6251130, 'Canada', 4, 'true');
 
 --
 -- Indexes for dumped tables
@@ -225,7 +238,7 @@ ALTER TABLE `degree`
 -- AUTO_INCREMENT for table `link`
 --
 ALTER TABLE `link`
-  MODIFY `linkId` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `linkId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `personal`
 --
