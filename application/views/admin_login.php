@@ -25,6 +25,20 @@
 	-webkit-filter: opacity(75%);
 	z-index: 0;
 }
+#sub{
+	width: 260px;
+	height: 35px;
+	background: #343197;
+	border: 1px solid rgb(52, 49, 151);
+	cursor: pointer;
+	border-radius: 2px;
+	color: #fff;
+	font-family: "Arial Black", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+	}
 	</style>
 	
 </head>
@@ -45,12 +59,11 @@
 		<div class="login">
 				<input type="text" name="email" placeholder="Email" value=""<br>
 				<input type="password" name="password" placeholder="Password" value = ""><br>
-				<input type="submit"  value="Login">
+				<input type="submit" id="sub" value="Login">
 				<p>------------------------------ OR -----------------------------</p>
 		
 				<input type="button" onclick="window.location ='<?php echo site_url('welcome/register')?>'" value="Register">
 				
-				<p>Have you forgotten your<br><a href="#" class="link"><strong>email</strong></a> or <a href="#" class="link"><strong>password</strong></a>?</p>
 		</div>
 	</form>
 </body>

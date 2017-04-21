@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-Class Alumniprofile extends CI_Model { 
+Class Alumniprofile_admin extends CI_Model { 
 function __construct() { 
          parent::__construct(); 
          $this->load->helper('url'); 
@@ -32,12 +32,13 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
         </div>
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
           <ul class=\"nav navbar-nav\" id='pad'>
-            <li><a href='".site_url('alumni')."'>Alumni</a></li>
+            <li><a href='".site_url('admin/alumni')."'>Alumni</a></li>
             <li><a href=\"index.html\">About</a></li>
             <li><a href=\"contact.html\">Contact</a></li>
           </ul>
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
-		  <li><a href='".site_url('')."'>My Profile</a></li>
+		  <li><a href='".site_url('admin')."'>Verify</a></li>
+		  <li><a href='".site_url('admin/export')."'>Export</a></li>
 		  <ul> 
         </div><!--/.nav-collapse -->
       </div>

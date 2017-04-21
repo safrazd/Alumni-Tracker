@@ -35,7 +35,7 @@ $count=0;
         </div>
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
           <ul class=\"nav navbar-nav\" id='pad'>
-            <li  class = \"active\"><a href='".site_url('alumni')."'>Alumni</a></li>
+            <li  class = \"active\"><a href='".site_url('admin/profile')."'>Alumni</a></li>
             <li><a href=\"index.html\">About</a></li>
             <li><a href=\"contact.html\">Contact</a></li>
           </ul>
@@ -62,7 +62,7 @@ $count=0;
         $image= "images/".$row['image'];
         echo"<div class=\"col-md-4\">
                 <div class=\"thumbnail\">
-                    <a href='".site_url('profile?alumniId=1')."'>
+                    <a href='".site_url('admin/profile?alumniId=1')."'>
                         <img src='".base_url($image)."' alt=\"Lights\" style=\"width:100%; height:300px\">
                         
 						<div class=\"caption text-center\">

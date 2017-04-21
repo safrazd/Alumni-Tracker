@@ -5,6 +5,7 @@
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <link href='publicstyle.css' rel='stylesheet' type='text/css'>
+	 <link href='<?php echo base_url(); ?>css/nav.css' rel='stylesheet' type='text/css'>
      <!-- Latest compiled and minified CSS -->
 
 <!-- Optional theme -->

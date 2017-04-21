@@ -33,6 +33,12 @@ public function index()
 	 $this->load->view('profiles_list');
 	}
 	
+	public function profile()
+	{
+		$this->load->view('viewprofile');
+		$this->load->model('alumniprofile_admin');
+		$this->alumniprofile_admin->profile();
+	}
 	
 }
 ?>
