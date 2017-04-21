@@ -48,7 +48,7 @@
 				<input type="submit" value="Login">
 				<p>------------------------------ OR -----------------------------</p>
 		
-				<input type="button" onclick="window.location ='<?php echo site_url('welcome/register')?>'" value="Register">
+				<input type="button" onclick="window.location ='<?php echo site_url('welcome/register')?>' value="Register">
 				
 				<p>Have you forgotten your<br><a href="#" class="link"><strong>email</strong></a> or <a href="#" class="link"><strong>password</strong></a>?</p>
 		</div>

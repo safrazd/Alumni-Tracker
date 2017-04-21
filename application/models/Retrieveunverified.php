@@ -24,16 +24,16 @@ $count=0;
             <span class=\"icon-bar\"></span>
             <span class=\"icon-bar\"></span>
           </button>
-          <a class=\"navbar-brand\"><img id =\"webnav\" src=\" ".base_url()."images/logo-uwi.png\" alt=\"\"></a>
+          <a><img src=\" ".base_url()."images/logo1.png\" width='100px' height='100px'  alt=\"\"></a>
         </div>
-        <div id=\"navbar\" class=\"collapse navbar-collapse\">
-          <ul class=\"nav navbar-nav\">
-            <li><a href='".site_url('alumni')."'>Alumni</a></li>
-            <li class = \"active\"><a href=\"index.html\">About</a></li>
+        <div id=\"navbar\" class=\"collapse navbar-collapse\" >
+          <ul class=\"nav navbar-nav\" id='pad'>
+            <li ><a href='".site_url('admin/alumni')."'>Alumni</a></li>
+            <li ><a href=\"index.html\">About</a></li>
             <li><a href=\"contact.html\">Contact</a></li>
           </ul>
-		  <ul  class=\"nav navbar-nav\" style='position:relative;float:right;'>
-		  <li><a href='".site_url('admin')."'>Verify</a></li>
+		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
+		  <li class = \"active\"><a href='".site_url('admin')."'>Verify</a></li>
 		  <li><a href='".site_url('admin/export')."'>Export</a></li>
 		  <ul> 
         </div><!--/.nav-collapse -->

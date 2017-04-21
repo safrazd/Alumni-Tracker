@@ -9,7 +9,7 @@
   <link rel="icon" href="../../favicon.ico">
   <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/style.css">
   <script type = 'text/javascript' src = "<?php echo base_url();?>js/prefixfree.min.js"></script>
-  <script type = 'text/javascript' src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   
     <style>
 	.body{
@@ -34,7 +34,7 @@
   <div class="body"></div>
 		<div class="grad"></div>
 		<div class ="search">
-			<input type="button" value="Admin" onclick="window.location ='<?php echo site_url('welcome/register')?>'">
+			<input type="button" value="Admin" onclick="window.location ='<?php echo site_url('login/admin')?>'">
 		</div>
 		<br>
 		<div class = "head">

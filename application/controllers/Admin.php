@@ -26,6 +26,13 @@ public function index()
 		$this->excel->export();
 	}
 	
+	public function alumni()
+	{
+     $this->load->model('retrieveprofiles_admin');
+	 $this->retrieveprofiles_admin->profiles();
+	 $this->load->view('profiles_list');
+	}
+	
 	
 }
 ?>
