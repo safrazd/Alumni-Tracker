@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <title>Unverified Alumni Members</title>
 </head>
-<body>
+<body style="background-color: #F1F3FA;">
 
 </body>
 </html>
