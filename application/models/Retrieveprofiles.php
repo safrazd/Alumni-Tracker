@@ -22,6 +22,7 @@ $count=0;
  $res = $this->db->query($sql);
  
  if($res){
+	 echo "<body>";
 	 echo"<nav class=\"navbar navbar-inverse navbar-default\">
       <div class=\"container\">
         <div class=\"navbar-header\">

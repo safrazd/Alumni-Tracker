@@ -12,19 +12,6 @@
   <script type = 'text/javascript' src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
   
     <style>
-	.body{
-	position: absolute;
-	top: -20px;
-	left: -20px;
-	right: -40px;
-	bottom: -40px;
-	width: auto;
-	height: auto;
-	background-image: url("<?php echo base_url('images/back.jpg'); ?>");
-	background-size: cover;
-	-webkit-filter: opacity(75%);
-	z-index: 0;
-}
 
 	#sub{
 	width: 260px;
@@ -45,10 +32,7 @@
 	
 </head>
 
-<body>
-	
-  <div class="body"></div>
-		<div class="grad"></div>
+<body style="background-color: #F1F3FA;">
 		<div class ="search">
 			<input type="button" value="Admin" onclick="window.location ='<?php echo site_url('login/admin')?>'">
 		</div>

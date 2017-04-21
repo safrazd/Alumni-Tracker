@@ -13,9 +13,7 @@
     <title>Document</title>
 
     <style>
-        body{
-            background-image: url(computer_code.jpg); 
-        }
+     
     </style>
     <?php
 	 echo"<nav class=\"navbar navbar-inverse navbar-default\">
@@ -44,7 +42,7 @@
     </nav>";
 	?>
 </head>
-<body>
+<body style="background-color: #F1F3FA;">
     
 
 
