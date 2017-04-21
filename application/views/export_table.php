@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+    <link href='<?php echo base_url(); ?>css/nav.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Document</title>
 
@@ -17,25 +17,37 @@
             background-image: url(computer_code.jpg); 
         }
     </style>
-    <nav class="navbar navbar-default" id="nav">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav" id="list">
-      <li><a href="home.php">Home</a></li>
-      <li><a href="alumniTable.php">Almuni Table</a></li>
-      <li class="active"><a href="export.php">Export</a></li>
-    </ul>
-  </div>
-</nav>
+    <?php
+	 echo"<nav class=\"navbar navbar-inverse navbar-default\">
+      <div class=\"container\">
+        <div class=\"navbar-header\">
+          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">
+            <span class=\"sr-only\">Toggle navigation</span>
+            <span class=\"icon-bar\"></span>
+            <span class=\"icon-bar\"></span>
+            <span class=\"icon-bar\"></span>
+          </button>
+          <a><img src=\" ".base_url()."images/logo1.png\" width='100px' height='100px'  alt=\"\"></a>
+        </div>
+        <div id=\"navbar\" class=\"collapse navbar-collapse\" >
+          <ul class=\"nav navbar-nav\" id='pad'>
+            <li ><a href='".site_url('admin/alumni')."'>Alumni</a></li>
+            <li ><a href=\"index.html\">About</a></li>
+            <li><a href=\"contact.html\">Contact</a></li>
+          </ul>
+		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
+		  <li ><a href='".site_url('admin')."'>Verify</a></li>
+		  <li class = \"active\"><a href='".site_url('admin/export')."'>Export</a></li>
+		  <ul> 
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>";
+	?>
 </head>
 <body>
     
 
-<div id="background">
-  <img src="images/computer_code.jpg" alt="background" height="100%" width="100%">
-</div>
+
 
 <br>
 
