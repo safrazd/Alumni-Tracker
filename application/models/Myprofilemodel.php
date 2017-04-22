@@ -8,7 +8,7 @@ function __construct() {
          $this->load->database(); 
       } 
 function profile(){
-$_SESSION["id"]=4;
+$_SESSION["id"]=2;
 // require("company_info.php");
 // require("dbconnect.php");
 $sql="SELECT *
