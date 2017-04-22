@@ -11,12 +11,13 @@ Class Retrieveprofiles extends CI_Model //checks if user logging in
 function profiles(){
 //require("dbconnect.php");
 //$con= $this->db;
-$sql="SELECT alumni.alumniId, alumni.fname, alumni.lname, company.companyName, degree.degreeName, degree.degreeClass, degree.yearGrad, link.image
+$sql="SELECT alumni.alumniId, alumni.fname, alumni.lname, degree.degreeName, degree.degreeClass, degree.yearGrad, link.image
  FROM ((alumni
  LEFT JOIN company ON alumni.alumniId=company.alumniId)
  LEFT JOIN degree ON alumni.alumniId=degree.alumniId)
  INNER JOIN link on alumni.alumniId=link.alumniId
- WHERE alumni.verified='Yes'";
+ WHERE alumni.verified='Yes'
+ ORDER BY degree.yearGrad DESC";
 $count=0;
  //$res=$con->query($sql);
  $res = $this->db->query($sql);
@@ -68,11 +69,7 @@ $count=0;
 						<div class=\"caption text-center\">
                             <h4 id=\"name\" >".$row["fname"]." ".$row["lname"]."</h3>
                             <p id=\"degree\" class=\"display_degree\"><strong>".$row["degreeClass"]." ".$row["degreeName"].", ".$row["yearGrad"]."</strong></p>
-                            ";
-                            if($row["companyName"]!=""){
-                            echo"<p>Curently works at ".$row["companyName"]."</p>";
-                            }else{
-                        echo"</div>
+                            </div>
                     </a>
                 </div>
             </div>
@@ -85,9 +82,8 @@ $count=0;
          
      }
      echo"</div>";
- }else{
-     echo"error";
- }
+ 
+ 
 }
 }
 ?>

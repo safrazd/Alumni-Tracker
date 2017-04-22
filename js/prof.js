@@ -49,7 +49,7 @@ $(function () {
             
         };
        
-        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company",data,function(response){
+       $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company",data,function(response){
             
             response=JSON.parse(response);
            
@@ -60,6 +60,7 @@ $(function () {
                 console.log(response);
             }
         })
+
 
 
          
