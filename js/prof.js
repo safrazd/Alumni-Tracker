@@ -1,4 +1,5 @@
 var isChecked;
+console.log("Hello WOrld");
 $(function () {
     $('.input-group-addon.beautiful').each(function () {
         
@@ -48,7 +49,7 @@ $(function () {
             
         };
        
-        $.post("http://localhost:8080/site/company_tab.php",data,function(response){
+        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company",data,function(response){
             
             response=JSON.parse(response);
            
@@ -101,7 +102,7 @@ $(function () {
             
         };
        
-        $.post("http://localhost:8080/Alumni-Tracker/index.php/welcome/aboutus",data,function(response){
+        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/aboutus",data,function(response){
             
             response=JSON.parse(response);
            

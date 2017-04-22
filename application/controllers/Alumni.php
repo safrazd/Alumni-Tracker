@@ -21,5 +21,15 @@ public function myprofile()
 		$this->load->model('myprofilemodel');
 		$this->myprofilemodel->profile();
 	}
+public function aboutus()
+	{	
+		$this->load->model('About_me_tab');
+		$this->About_me_tab->AboutMe();
+	}
+	public function company()
+	{	
+		$this->load->model('Company_tab');
+		$this->Company_tab->update();
+	}
 }
 ?>
