@@ -14,5 +14,22 @@ public function index()
 	 $this->retrieveprofiles->profiles();
 	 $this->load->view('profiles_list');;
 	}
+
+public function myprofile()
+	{
+		$this->load->view('myprofile');
+		$this->load->model('myprofilemodel');
+		$this->myprofilemodel->profile();
+	}
+public function aboutus()
+	{	
+		$this->load->model('About_me_tab');
+		$this->About_me_tab->AboutMe();
+	}
+	public function company()
+	{	
+		$this->load->model('Company_tab');
+		$this->Company_tab->update();
+	}
 }
 ?>
