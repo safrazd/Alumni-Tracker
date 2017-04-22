@@ -14,5 +14,12 @@ public function index()
 	 $this->retrieveprofiles->profiles();
 	 $this->load->view('profiles_list');;
 	}
+
+public function myprofile()
+	{
+		$this->load->view('myprofile');
+		$this->load->model('myprofilemodel');
+		$this->myprofilemodel->profile();
+	}
 }
 ?>

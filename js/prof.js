@@ -35,16 +35,19 @@ $(function () {
         
         updateDisplay();
     });
+
+
     //setting company tab to visible
-
-
 
      $("#settings").click(function(){
          var data={
             company_visible:isChecked,
-            company_name:$("#company_name").val()
+            company_name:$("#company_name").val(),
+            public_profile:$("#public_profile").is(":checked")
+            
             
         };
+       
         $.post("http://localhost:8080/site/company_tab.php",data,function(response){
             
             response=JSON.parse(response);
@@ -52,20 +55,67 @@ $(function () {
             if(response.status=="success"){
                 console.log("success");
                 console.log(response.button);
+            }else{
+                console.log(response);
             }
         })
 
 
-         if(isChecked=="checked"){
-             $("#company_tab").removeClass('hide');
-             $(".company_name_page").text($("#company_name").val());
-         }else if(isChecked=="not Checked"){
-             $("#company_tab").addClass('hide');
-         }else{
-             $("#company_tab").addClass('hide');
-         }
+         
         
     })
     $("#company_name").val($(".company_name_page").text());
+    
+    // $("#post_interest").click(function(){
+    //      var data={
+    //         interest:$("#comment").val()
+    //     };
+       
+    //     $.post("http://localhost:8080/site/post_interest.php",data,function(response){
+            
+    //         response=JSON.parse(response);
+           
+    //         if(response.status=="success"){
+    //             console.log("success");
+               
+    //         }else{
+    //             console.log(response);
+    //         }
+    //     })
+
+
+         
+        
+    // })
+    
+     $("#about_me").click(function(){
+         var data={
+            contact:$("#contact").val(),
+            degree:$("#degree").val(),
+            birth_country:$("#birth_country").val(),
+            graduated:$("#graduated").val(),
+            email:$("#email").val(),
+            degree_class:$("#degree_class").val(),
+            occupation:$("#occupation").val(),
+            
+            
+        };
+       
+        $.post("http://localhost:8080/Alumni-Tracker/index.php/welcome/aboutus",data,function(response){
+            
+            response=JSON.parse(response);
+           
+            if(response.status=="success"){
+                console.log("success");
+                console.log(response.button);
+            }else{
+                console.log(response);
+            }
+        })
+
+
+         
+        
+    })
     
 });
