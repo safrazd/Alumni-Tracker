@@ -1,5 +1,5 @@
 var isChecked;
-console.log("Hello WOrld");
+var togglecheck;
 $(function () {
     $('.input-group-addon.beautiful').each(function () {
         
@@ -39,8 +39,12 @@ $(function () {
 
 
     //setting company tab to visible
-
+       
+           // $("#public_profile").checked=false;
+            
+        
      $("#settings").click(function(){
+         
          var data={
             company_visible:isChecked,
             company_name:$("#company_name").val(),
@@ -49,18 +53,19 @@ $(function () {
             
         };
        
-       $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company",data,function(response){
+        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company",data,function(response){
             
             response=JSON.parse(response);
            
             if(response.status=="success"){
                 console.log("success");
                 console.log(response.button);
+                togglecheck=response.button
+                
             }else{
                 console.log(response);
             }
         })
-
 
 
          
@@ -104,6 +109,35 @@ $(function () {
         };
        
         $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/aboutus",data,function(response){
+            
+            response=JSON.parse(response);
+           
+            if(response.status=="success"){
+                console.log("success");
+                console.log(response.button);
+            }else{
+                console.log(response);
+            }
+        })
+
+
+         
+        
+    })
+
+
+    $("#button_company").click(function(){
+         var data={
+            Company_Name:$("#Company_Name").val(),
+            About_Company:$("#About_Company").val(),
+            Country_Employed:$("#Country_Employed").val(),
+            Company_Email:$("#Company_Email").val(),
+            
+            
+            
+        };
+       
+        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company_info_tab",data,function(response){
             
             response=JSON.parse(response);
            

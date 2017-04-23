@@ -56,13 +56,13 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 			<div class=\"profile-sidebar\">
 				<!-- SIDEBAR USERPIC -->
 				<div class=\"profile-userpic\">
-					<img src='" .base_url()."images/".$row['image']."' alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
+					<img src='" .base_url()."images/profile.jpg' alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				<div class=\"profile-usertitle\">
 					<div class=\"profile-usertitle-name\">
-						".$row['fName']." ".$row['lName']."
+						Marcus Doe
 					</div>
 					<div class=\"profile-usertitle-job\">
 						
@@ -186,7 +186,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 															 
 														<div class=\"form-group\">
 															<label for=\"contact\">Contact Number</label>
-															<input type=\"text\" class=\"form-control\" id=\"contact\" name=\"contact\"  placeholder=\"...\">
+															<input type=\"text\" class=\"form-control\" id=\"contact\" name=\"contact\"  placeholder=\"...\" value=\"".$row["contactNo"]."\">
 															
 														</div>
 													</div>
@@ -194,7 +194,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 														
 														<div class=\"form-group\">
 															<label for=\"degree\">Degree</label>
-															<input type=\"text\" class=\"form-control\" id=\"degree\" name=\"degree\"  placeholder=\"...\">
+															<input type=\"text\" class=\"form-control\" id=\"degree\" name=\"degree\"  placeholder=\"...\" value=\"".$row["degreeName"]."\">
 															
 														</div>
 													</div>
@@ -204,7 +204,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 															 
 														<div class=\"form-group\">
 															<label for=\"birth_country\">Country of Birth</label>
-															<input type=\"text\" class=\"form-control\" id=\"birth_country\" name=\"birth_country\" placeholder=\"...\">
+															<input type=\"text\" class=\"form-control\" id=\"birth_country\" name=\"birth_country\" placeholder=\"...\" value=\"".$row["birthCountry"]."\">
 															
 														</div>
 													</div>
@@ -212,7 +212,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 														
 														<div class=\"form-group\">
 															<label for=\"graduated\">Year Graduated</label>
-															<input type=\"date\" class=\"form-control\" id=\"graduated\" name=\"graduated\" placeholder=\"...\">
+															<input type=\"date\" class=\"form-control\" id=\"graduated\" name=\"graduated\" placeholder=\"...\" value=\"".$row["yearGrad"]."\">
 															
 														</div>
 													</div>
@@ -222,7 +222,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 															 
 														<div class=\"form-group\">
 															<label for=\"email\">Email</label>
-															<input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" placeholder=\"...\">
+															<input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" placeholder=\"...\" value=\"".$row["email"]."\">
 															
 														</div>
 													</div>
@@ -240,7 +240,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 															 
 														<div class=\"form-group\">
 															<label for=\"occupation\">Occupation</label>
-															<input type=\"text\" class=\"form-control\" id=\"occupation\" name=\"occupation\" placeholder=\"...\">
+															<input type=\"text\" class=\"form-control\" id=\"occupation\" name=\"occupation\" placeholder=\"...\" value=\"".$row["occupation"]."\">
 															
 														</div>
 													</div>
@@ -248,7 +248,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 														
 														<div class=\"form-group\">
 															<label for=\"degree_class\">Class of Degree awarded</label>
-															<input type=\"text\" class=\"form-control\" id=\"degree_class\" name=\"degree_class\"  placeholder=\"...\">
+															<input type=\"text\" class=\"form-control\" id=\"degree_class\" name=\"degree_class\"  placeholder=\"...\" value=\"".$row["degreeClass"]."\">
 															
 														</div>
 													</div>
@@ -256,7 +256,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 											</form>
 										<div class=\"modal-footer\">
 											<button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
-											<input type=\"button\" class=\"btn btn-primary\" value=\"Save changes\" id=\"about_me\"></button>
+											<input type=\"button\" class=\"btn btn-primary\" value=\"Save changes\" id=\"about_me\" data-dismiss=\"modal\"></button>
 										</div>
 									</div>
 								</div>
@@ -313,18 +313,18 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
                         </div>
                         <dl class=\"row\">
                             <dt class=\"col-sm-3 about_company_title\">About Company</dt>
-                            <dd class=\"col-sm-9 about_company\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium sint magnam sequi repellendus volupta</dd>
-
+                            <dd class=\"col-sm-9 about_company\">".$row["companyDescription"]."</dd>
+						</dl>
+						<dl class=\"row\">
                             <dt class=\"col-sm-3 country_employed_title\">Country Employed</dt>
-                            <dd class=\"col-sm-9 country_employed\">Vestibulum</dd>
-                            
-
+                            <dd class=\"col-sm-9 country_employed\">".$row["country"]."</dd>
+                        </dl>
+						<dl class=\"row\">
                             <dt class=\"col-sm-3 company_email_title\">Company Email</dt>
-                            <dd class=\"col-sm-9 company_email\">Email@something.com</dd>
-
+                            <dd class=\"col-sm-9 company_email\">".$row["company_email"]."</dd>
+						</dl>
                             
-                            </dd>
-                            </dl>
+                            
 							
                             
                             <div class=\"modal fade\" id=\"country_modal\" role=\"dialog\">
@@ -386,7 +386,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 
                                 <div class=\"modal-footer\">
                                 <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>
-								<button type=\"button\" class=\"btn btn-primary\">Save changes</button>
+								<button type=\"button\" class=\"btn btn-primary\" id=\"button_company\" data-dismiss=\"modal\">Save changes</button>
                                 </div>
                             </div>
                             

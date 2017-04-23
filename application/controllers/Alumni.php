@@ -33,6 +33,12 @@ public function company()
 		$this->load->model('Company_tab');
 		$this->Company_tab->update();
 	}
+	
+	public function company_info_tab(){
+		$this->load->model('company_info_tab');
+		$this->company_info_tab->Comapny_info();
+	}
+	
 public function session()
 	{
 		$this->session->sess_destroy();

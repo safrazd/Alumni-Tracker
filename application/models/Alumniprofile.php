@@ -14,6 +14,8 @@ $sql="SELECT *
  FROM ((alumni
  LEFT JOIN company ON alumni.alumniId=company.alumniId)
  LEFT JOIN degree ON alumni.alumniId=degree.alumniId)
+ LEFT JOIN link ON alumni.alumniId=link.alumniId
+ LEFT JOIN personal ON alumni.alumniId=personal.alumniId
  WHERE alumni.alumniId='$alumniId';";
  //$res=$con->query($sql);
  $res = $this->db->query($sql);
@@ -51,7 +53,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 				<!-- SIDEBAR USERPIC -->
 				<div class=\"profile-userpic\">
 	
-					<img src='" .base_url()."images/profile.jpg' alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
+					<img src='" .base_url()."images/".$row['image']."' alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
 					
 				</div>
 				<!-- END SIDEBAR USERPIC -->
@@ -121,7 +123,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 					<div class=\"tab-pane text-style\" id=\"tab3\">
 							<div class=\"row \">
                             <div class=\"col-md-6\"><h4>Occupation </h4>
-							<p class=\"occupation\"></p>
+							<p class=\"occupation\">".$row["occupation"]."</p>
 							</div>
                             <div class=\"col-md-6\"><h4>Degree</h4>
                                 <p class=\"degree\">".$row["degreeName"]."</p>
@@ -137,20 +139,19 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 							</div>
                         </div>
                         <div class=\"row profileinfo\">
-                            <div class=\"col-md-6\"><h4>Degree Acquired </h4>
-								<p class=\"degree_acquired\"></p>
-							</div>
+                    
 							<div class=\"col-md-6\"><h4>Email </h4>
 							<p class=\"email\">".$row["email"]."</p>
+							</div>
+							<div class=\"col-md-6\"><h4>Country of Birth </h4>
+							<p class=\"birth\">".$row["birthCountry"]."</p>
 							</div>
                         </div>
                         <div class=\"row profileinfo\">
 							<div class=\"col-md-6\"><h4>Contact Number</h4>
-                                <p class=\"phone_number\" ></p>
+                                <p class=\"phone_number\" >".$row["contactNo"]."</p>
 							</div>
-							<div class=\"col-md-6\"><h4>Country of Birth </h4>
-							<p class=\"birth\"></p>
-							</div>
+							
                         </div>  
 						</form> 
 					</div>
