@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2017 at 01:19 AM
+-- Generation Time: Apr 23, 2017 at 05:33 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -70,7 +70,7 @@ INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCr
 (1, 'Roger', 'Jones', 'roger.jones@gmail.com', 'roger', '2017-04-20 06:16:42', 'Yes'),
 (2, 'Mike', 'Mick', 'Mikey@gmail.com', 'mike', '2017-04-11 05:52:50', 'Yes'),
 (3, 'Lloyd', 'Jeff', 'lj@hotmail.com', 'lloyd', '2017-04-11 05:52:50', 'Yes'),
-(4, 'darnell', 'bruce', 'darnellbr625@yahoo.com', '70ccd9007338d6d81dd3b6271621b9cf9a97ea00', '2017-04-13 19:55:00', 'Yes');
+(4, 'darnell', 'bruce', 'asdsad', '70ccd9007338d6d81dd3b6271621b9cf9a97ea00', '2017-04-22 03:32:06', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -83,6 +83,7 @@ CREATE TABLE `company` (
   `companyId` int(20) NOT NULL,
   `companyName` varchar(50) NOT NULL,
   `companyDescription` varchar(255) NOT NULL,
+  `company_email` varchar(20) NOT NULL,
   `country` varchar(50) NOT NULL,
   `occupation` varchar(50) NOT NULL,
   `alumniId` int(20) NOT NULL,
@@ -93,8 +94,8 @@ CREATE TABLE `company` (
 -- Dumping data for table `company`
 --
 
-INSERT INTO `company` (`companyId`, `companyName`, `companyDescription`, `country`, `occupation`, `alumniId`, `company_visible`) VALUES
-(1, 'Mopper', '', '', '', 1, 'checked');
+INSERT INTO `company` (`companyId`, `companyName`, `companyDescription`, `company_email`, `country`, `occupation`, `alumniId`, `company_visible`) VALUES
+(2, 'ewqe', '', '', '', 'Police', 2, 'checked');
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,7 @@ CREATE TABLE `degree` (
 
 INSERT INTO `degree` (`degreeId`, `degreeName`, `degreeClass`, `yearGrad`, `alumniId`) VALUES
 (1, 'Information Technology', 'Bsc', 2011, 1),
-(2, 'Computer Science', 'Bsc', 2005, 2),
+(2, 'Computer Science', 'Bsc', 2017, 2),
 (3, 'Engineering', 'Bsc', 2021, 3);
 
 -- --------------------------------------------------------
@@ -163,7 +164,7 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`personalId`, `contactNo`, `birthCountry`, `alumniId`, `display_personal`) VALUES
-(1, 6251130, 'Canada', 4, 'true');
+(1, 999999, 'Trinidad', 2, 'true');
 
 --
 -- Indexes for dumped tables
@@ -228,7 +229,7 @@ ALTER TABLE `alumni`
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `companyId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `companyId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `degree`
 --
