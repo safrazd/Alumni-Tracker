@@ -41,7 +41,7 @@
             <span class=\"icon-bar\"></span>
             <span class=\"icon-bar\"></span>
           </button>
-          <a><img src=\" ".base_url()."images/logo1.png\" width='100px' height='100px'  alt=\"\"></a>
+          <a href='".site_url('login')."'><img src=\" ".base_url()."images/logo1.png\" width='100px' height='100px'  alt=\"\"></a>
         </div>
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>

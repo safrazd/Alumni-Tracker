@@ -10,9 +10,11 @@ class Alumni extends CI_Controller { //viewing a person profile that is not your
 
 public function index()
 	{
+	if ($this->session->userdata['logged_in']['alumniId']){
 	 $this->load->model('retrieveprofiles');
 	 $this->retrieveprofiles->profiles();
 	 $this->load->view('profiles_list');;
+	}
 	}
 
 public function myprofile()
@@ -26,10 +28,22 @@ public function aboutus()
 		$this->load->model('About_me_tab');
 		$this->About_me_tab->AboutMe();
 	}
-	public function company()
+public function company()
 	{	
 		$this->load->model('Company_tab');
 		$this->Company_tab->update();
 	}
+public function session()
+	{
+		$this->session->sess_destroy();
+		redirect('login');
+	}	
+public function profile()
+	{
+		$this->load->view('viewprofile');
+		$this->load->model('alumniprofile');
+		$this->alumniprofile->profile();
+	}
+
 }
 ?>

@@ -39,6 +39,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
 		  <li><a href='".site_url('admin')."'>Verify</a></li>
 		  <li><a href='".site_url('admin/export')."'>Export</a></li>
+		  <li><a href='".site_url('admin/session')."'>Log out</a></li>
 		  <ul> 
         </div><!--/.nav-collapse -->
       </div>
