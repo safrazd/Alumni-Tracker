@@ -40,5 +40,11 @@ public function index()
 		$this->alumniprofile_admin->profile();
 	}
 	
+	public function session()
+	{
+		$this->session->sess_destroy();
+		redirect('login/admin');
+	}
+	
 }
 ?>

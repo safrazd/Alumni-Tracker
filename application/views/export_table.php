@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href='<?php echo base_url(); ?>css/nav.css' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Export Alumni</title>
 
     <style>
      
@@ -35,6 +35,7 @@
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
 		  <li ><a href='".site_url('admin')."'>Verify</a></li>
 		  <li class = \"active\"><a href='".site_url('admin/export')."'>Export</a></li>
+		  <li><a href='".site_url('admin/session')."'>Log out</a></li>
 		  <ul> 
         </div><!--/.nav-collapse -->
       </div>

@@ -21,7 +21,8 @@ $sql="SELECT alumni.alumniId, alumni.fname, alumni.lname, degree.degreeName, deg
 $count=0;
  //$res=$con->query($sql);
  $res = $this->db->query($sql);
- 
+ $id= $this->session->userdata('logged in->alumniId');
+	echo $id;
  if($res){
 	 echo "<body>";
 	 echo"<nav class=\"navbar navbar-inverse navbar-default\">
@@ -37,12 +38,13 @@ $count=0;
         </div>
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
           <ul class=\"nav navbar-nav\" id='pad'>
-            <li  class = \"active\"><a href='".site_url('profile')."'>Alumni</a></li>
+            <li  class = \"active\"><a href='".site_url('alumni')."'>Alumni</a></li>
             <li><a href=\"index.html\">About</a></li>
             <li><a href=\"contact.html\">Contact</a></li>
           </ul>
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
 		  <li><a href='".site_url('alumni/myprofile')."'>My Profile</a></li>
+		  <li><a href='".site_url('alumni/session')."'>Log out</a></li>
 		  <ul> 
         </div><!--/.nav-collapse -->
       </div>
@@ -63,7 +65,7 @@ $count=0;
         $image= "images/".$row['image'];
         echo"<div class=\"col-md-4\">
                 <div class=\"thumbnail\">
-                    <a href='".site_url('profile?alumniId='.$row["alumniId"])."'>
+                    <a href='".site_url('alumni/profile?alumniId='.$row["alumniId"])."'>
                         <img src='".base_url($image)."' alt=\"Lights\" style=\"width:100%; height:300px\">
                         
 						<div class=\"caption text-center\">
@@ -82,6 +84,7 @@ $count=0;
          
      }
      echo"</div>";
+	
  
  
 }

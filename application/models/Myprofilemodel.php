@@ -8,7 +8,7 @@ function __construct() {
          $this->load->database(); 
       } 
 function profile(){
-$_SESSION["id"]=2;
+$id= $this->session->userdata['logged_in']['alumniId']; //fetching alumnid of logged in user
 // require("company_info.php");
 // require("dbconnect.php");
 $sql="SELECT *
@@ -16,7 +16,8 @@ $sql="SELECT *
  LEFT JOIN company ON alumni.alumniId=company.alumniId)
  LEFT JOIN degree ON alumni.alumniId=degree.alumniId)
 LEFT JOIN personal ON alumni.alumniId=personal.alumniId)
- WHERE alumni.alumniId='".$_SESSION["id"]."';";
+INNER JOIN link ON alumni.alumniId=link.alumniId
+ WHERE alumni.alumniId='".$id."';";
 
 //  $res=$con->query($sql);
  $res = $this->db->query($sql);
@@ -24,8 +25,7 @@ LEFT JOIN personal ON alumni.alumniId=personal.alumniId)
 if($res){
     // $row=$res->fetch_assoc();
    foreach ($res->result_array() as $row){ 
-echo"     
-<nav class=\"navbar navbar-inverse navbar-default\">
+echo"<nav class=\"navbar navbar-inverse navbar-default\">
       <div class=\"container\">
         <div class=\"navbar-header\">
           <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">
@@ -34,14 +34,18 @@ echo"
             <span class=\"icon-bar\"></span>
             <span class=\"icon-bar\"></span>
           </button>
-          <a class=\"navbar-brand\"><img id =\"webnav\" src=\"logo-uwi.png\" alt=\"\"></a>
+          <a><img src=\" ".base_url()."images/logo1.png\" width='100px' height='100px'  alt=\"\"></a>
         </div>
-        <div id=\"navbar\" class=\"collapse navbar-collapse\">
-          <ul class=\"nav navbar-nav\">
-            <li><a href=\"wel.html\">Home</a></li>
-            <li class = \"active\"><a href=\"index.html\">About</a></li>
+        <div id=\"navbar\" class=\"collapse navbar-collapse\" >
+          <ul class=\"nav navbar-nav\" id='pad'>
+            <li><a href='".site_url('alumni')."'>Alumni</a></li>
+            <li><a href=\"index.html\">About</a></li>
             <li><a href=\"contact.html\">Contact</a></li>
           </ul>
+		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
+		  <li class = \"active\" ><a href='".site_url('alumni/myprofile')."'>My Profile</a></li>
+		  <li><a href='".site_url('alumni/session')."'>Log out</a></li>
+		  <ul> 
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -52,13 +56,13 @@ echo"
 			<div class=\"profile-sidebar\">
 				<!-- SIDEBAR USERPIC -->
 				<div class=\"profile-userpic\">
-					<img src='" .base_url()."images/profile.jpg' alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
+					<img src='" .base_url()."images/".$row['image']."' alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				<div class=\"profile-usertitle\">
 					<div class=\"profile-usertitle-name\">
-						Marcus Doe
+						".$row['fName']." ".$row['lName']."
 					</div>
 					<div class=\"profile-usertitle-job\">
 						

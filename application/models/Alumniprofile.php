@@ -37,7 +37,8 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
             <li><a href=\"contact.html\">Contact</a></li>
           </ul>
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
-		  <li><a href='".site_url('')."'>My Profile</a></li>
+		  <li><a href='".site_url('alumni/myprofile')."'>My Profile</a></li>
+		  <li><a href='".site_url('alumni/session')."'>Log out</a></li>
 		  <ul> 
         </div><!--/.nav-collapse -->
       </div>

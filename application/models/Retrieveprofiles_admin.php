@@ -11,7 +11,7 @@ Class Retrieveprofiles_admin extends CI_Model //checks if user logging in
 function profiles(){
 //require("dbconnect.php");
 //$con= $this->db;
-$sql="SELECT alumni.alumniId, alumni.fname, alumni.lname, company.companyName, degree.degreeName, degree.degreeClass, degree.yearGrad, link.image
+$sql="SELECT alumni.alumniId, alumni.fname, alumni.lname, degree.degreeName, degree.degreeClass, degree.yearGrad, link.image
  FROM ((alumni
  LEFT JOIN company ON alumni.alumniId=company.alumniId)
  LEFT JOIN degree ON alumni.alumniId=degree.alumniId)
@@ -35,13 +35,14 @@ $count=0;
         </div>
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
           <ul class=\"nav navbar-nav\" id='pad'>
-            <li  class = \"active\"><a href='".site_url('admin/profile')."'>Alumni</a></li>
+            <li  class = \"active\"><a href='".site_url('admin/alumni')."'>Alumni</a></li>
             <li><a href=\"index.html\">About</a></li>
             <li><a href=\"contact.html\">Contact</a></li>
           </ul>
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
 		  <li><a href='".site_url('admin')."'>Verify</a></li>
 		  <li><a href='".site_url('admin/export')."'>Export</a></li>
+		  <li><a href='".site_url('admin/session')."'>Log out</a></li>
 		  <ul> 
         </div><!--/.nav-collapse -->
       </div>
@@ -68,11 +69,7 @@ $count=0;
 						<div class=\"caption text-center\">
                             <h4 id=\"name\" >".$row["fname"]." ".$row["lname"]."</h3>
                             <p id=\"degree\" class=\"display_degree\"><strong>".$row["degreeClass"]." ".$row["degreeName"].", ".$row["yearGrad"]."</strong></p>
-                            ";
-                            if($row["companyName"]!=""){
-                            echo"<p>Curently works at ".$row["companyName"]."</p>";
-                            }else{
-                        echo"</div>
+                            </div>
                     </a>
                 </div>
             </div>
@@ -85,9 +82,9 @@ $count=0;
          
      }
      echo"</div>";
- }else{
-     echo"error";
- }
+	
+ 
+ 
 }
 }
 ?>
