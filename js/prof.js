@@ -114,6 +114,7 @@ $(function () {
            
             if(response.status=="success"){
                 console.log("success");
+				location.reload();
                 console.log(response.button);
             }else{
                 console.log(response);

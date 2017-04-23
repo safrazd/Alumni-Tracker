@@ -10,25 +10,25 @@ function __construct() {
       }
 function AboutMe(){
     
-
+$id=$this->session->userdata['logged_in']['alumniId']; 
 //require("company_info.php");
 //require("dbconnect.php");
 
 $sql1="UPDATE alumni
 SET email='".$_POST["email"]."'
-WHERE alumniId='".$_SESSION["id"]."';";
+WHERE alumniId='".$id."';";
 
 $sql2="UPDATE company
 SET occupation='".$_POST["occupation"]."'
-WHERE alumniId='".$_SESSION["id"]."';";
+WHERE alumniId='".$id."';";
 
 $sql3="UPDATE degree
 SET degreeName='".$_POST["degree"]."',degreeClass='".$_POST["degree_class"]."',yearGrad='".$_POST["graduated"]."'
-WHERE alumniId='".$_SESSION["id"]."';";
+WHERE alumniId='".$id."';";
 
 $sql4="UPDATE personal
 SET contactNo='".$_POST["contact"]."',birthCountry='".$_POST["birth_country"]."'
-WHERE alumniId='".$_SESSION["id"]."';";
+WHERE alumniId='".$id."';";
  //$res=$con->query($sql);
 $alumni_update = $this->db->query($sql1);
 $company_update = $this->db->query($sql2);
