@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2017 at 05:33 AM
+-- Generation Time: Apr 23, 2017 at 06:31 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -67,10 +67,10 @@ CREATE TABLE `alumni` (
 --
 
 INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCreated`, `verified`) VALUES
-(1, 'Roger', 'Jones', 'roger.jones@gmail.com', 'roger', '2017-04-20 06:16:42', 'Yes'),
-(2, 'Mike', 'Mick', 'Mikey@gmail.com', 'mike', '2017-04-11 05:52:50', 'Yes'),
-(3, 'Lloyd', 'Jeff', 'lj@hotmail.com', 'lloyd', '2017-04-11 05:52:50', 'Yes'),
-(4, 'darnell', 'bruce', 'asdsad', '70ccd9007338d6d81dd3b6271621b9cf9a97ea00', '2017-04-22 03:32:06', 'Yes');
+(1, 'Roger', 'Jones', 'roger.jones@gmail.com', 'roger', '2017-04-23 03:36:27', 'Yes'),
+(2, 'Mike', 'Mick', 'Mikey@gmail.com', 'mike', '2017-04-23 03:37:44', 'Yes'),
+(3, 'Lloyd', 'Jeff', 'lj@hotmail.com', 'lloyd', '2017-04-23 03:36:18', 'No'),
+(4, 'darnell', 'bruce', 'asdsad', '70ccd9007338d6d81dd3b6271621b9cf9a97ea00', '2017-04-23 03:36:18', 'No');
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`companyId`, `companyName`, `companyDescription`, `company_email`, `country`, `occupation`, `alumniId`, `company_visible`) VALUES
-(2, 'ewqe', '', '', '', 'Police', 2, 'checked');
+(2, 'ewqe', '', '', '', 'Student', 2, 'checked');
 
 -- --------------------------------------------------------
 
@@ -153,7 +153,7 @@ INSERT INTO `link` (`linkId`, `image`, `facebook`, `linkedin`, `alumniId`) VALUE
 DROP TABLE IF EXISTS `personal`;
 CREATE TABLE `personal` (
   `personalId` int(20) NOT NULL,
-  `contactNo` int(20) NOT NULL,
+  `contactNo` varchar(20) NOT NULL,
   `birthCountry` varchar(50) NOT NULL,
   `alumniId` int(20) NOT NULL,
   `display_personal` varchar(255) NOT NULL
@@ -164,7 +164,7 @@ CREATE TABLE `personal` (
 --
 
 INSERT INTO `personal` (`personalId`, `contactNo`, `birthCountry`, `alumniId`, `display_personal`) VALUES
-(1, 999999, 'Trinidad', 2, 'true');
+(1, '762-9999', 'Barbados', 2, 'true');
 
 --
 -- Indexes for dumped tables
