@@ -56,13 +56,13 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 			<div class=\"profile-sidebar\">
 				<!-- SIDEBAR USERPIC -->
 				<div class=\"profile-userpic\">
-					<img src='" .base_url()."images/profile.jpg' alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
+					<img src='" .base_url()."images/".$row['image']."' 	alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
 				</div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				<div class=\"profile-usertitle\">
 					<div class=\"profile-usertitle-name\">
-						Marcus Doe
+						".$row["fName"]." ".$row["lName"]."
 					</div>
 					<div class=\"profile-usertitle-job\">
 						
@@ -212,7 +212,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 														
 														<div class=\"form-group\">
 															<label for=\"graduated\">Year Graduated</label>
-															<input type=\"date\" class=\"form-control\" id=\"graduated\" name=\"graduated\" placeholder=\"...\" value=\"".$row["yearGrad"]."\">
+															<input type=\"number\" class=\"form-control\" id=\"graduated\" name=\"graduated\" placeholder=\"...\" value=\"".$row["yearGrad"]."\">
 															
 														</div>
 													</div>
@@ -229,8 +229,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 													<div class=\"col-md-6\">
 														
 														<div class=\"form-group\">
-															<label for=\"degree_acquired\">Degree Acquired</label>
-															<input type=\"text\" class=\"form-control\" id=\"degree_acquired\" name=\"degree_acquired\" placeholder=\"...\">
+															
 															
 														</div>
 													</div>
@@ -283,22 +282,22 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 							</div>
                         </div>
                         <div class=\"row profileinfo\">
-                            <div class=\"col-md-6\"><h4>Degree Acquired </h4>
-								<p class=\"degree_acquired\"></p>
-							</div>";
+                            
+							";
 							if($row["display_personal"]=="true"){
 							echo"
 							<div class=\"col-md-6\"><h4>Email </h4>
 							<p class=\"email\">".$row["email"]."</p>
+							</div>
+							<div class=\"col-md-6\"><h4>Country of Birth </h4>
+							<p class=\"birth\">".$row["birthCountry"]."</p>
 							</div>
                         </div>
                         <div class=\"row profileinfo\">
 							<div class=\"col-md-6\"><h4>Contact Number</h4>
                                 <p class=\"phone_number\" >".$row["contactNo"]."</p>
 							</div>
-							<div class=\"col-md-6\"><h4>Country of Birth </h4>
-							<p class=\"birth\">".$row["birthCountry"]."</p>
-							</div>
+							
                         </div>  
 						</form> 
 					</div>
