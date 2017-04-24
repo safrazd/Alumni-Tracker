@@ -18,7 +18,6 @@ $sql="SELECT *
 LEFT JOIN personal ON alumni.alumniId=personal.alumniId)
 INNER JOIN link ON alumni.alumniId=link.alumniId
  WHERE alumni.alumniId='".$id."';";
-
 //  $res=$con->query($sql);
  $res = $this->db->query($sql);
 

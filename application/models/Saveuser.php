@@ -17,5 +17,13 @@ Class Saveuser extends CI_Model //checks if user logging in
  {
   $this->db->insert('degree', $data1);
  }
+ 
+ function register2($data2)
+ {
+	 $this->db->insert('company', $data2);
+	 $this->db->insert('link', $data2);
+     $this->db->insert('personal', $data2);
+ }
+ 
 }
 ?>
