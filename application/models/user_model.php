@@ -10,7 +10,7 @@ class user_model extends CI_Model
     //insert into user table
     function insertUser($data)
     {
-        return $this->db->insert('user', $data);
+       $this->db->insert('alumni', $data);
     }
     
     //send verification email to user's email id
