@@ -45,6 +45,10 @@ class Createalumni extends CI_Controller {
 'alumniId' =>$alumniId
 );
 $this->saveuser->register1($data1);
+
+$data2 =array('alumniId' =>$alumniId);
+$this->saveuser->register2($data2);
+
 $sess_array = array(
          'alumniId' => $alumniId,
          'email' => $data['email']
