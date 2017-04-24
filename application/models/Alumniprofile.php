@@ -35,8 +35,8 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
           <ul class=\"nav navbar-nav\" id='pad'>
             <li><a href='".site_url('alumni')."'>Alumni</a></li>
-            <li><a href=\"index.html\">About</a></li>
-            <li><a href=\"contact.html\">Contact</a></li>
+            <li><a href='".site_url('alumni/about')."'>About</a></li>
+            <li><a href='".site_url('alumni/contact')."'>Contact</a></li>
           </ul>
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
 		  <li><a href='".site_url('alumni/myprofile')."'>My Profile</a></li>

@@ -51,5 +51,19 @@ public function profile()
 		$this->alumniprofile->profile();
 	}
 
+public function about()
+	{
+		$this->load->view('alumni_about');
+
+	}
+
+
+
+public function contact()
+	{
+		$this->load->view('alumni_contact');
+
+	}
+
 }
 ?>
