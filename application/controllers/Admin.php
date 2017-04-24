@@ -45,6 +45,18 @@ public function index()
 		$this->session->sess_destroy();
 		redirect('login/admin');
 	}
+
+public function about()
+	{
+		$this->load->view('admin_about');
+		
+	}
+
+public function contact()
+	{
+		$this->load->view('admin_contact');
+		
+	}
 	
 }
 ?>
