@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost:8080/Alumni-Tracker/'; //this base url needs to be added to access the files in the css and js folder
+$config['base_url'] = 'http://alumnit.azurewebsites.net/'; //this base url needs to be added to access the files in the css and js folder
 
 /*
 |--------------------------------------------------------------------------
