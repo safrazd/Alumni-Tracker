@@ -40,8 +40,8 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
           <ul class=\"nav navbar-nav\" id='pad'>
             <li><a href='".site_url('alumni')."'>Alumni</a></li>
-           <li><a href='".site_url('alumni/about')."'>About</a></li>
-            <li><a href='".site_url('alumni/contact')."'>Contact</a></li>
+            <li><a href=\"index.html\">About</a></li>
+            <li><a href=\"contact.html\">Contact</a></li>
           </ul>
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
 		  <li class = \"active\" ><a href='".site_url('alumni/myprofile')."'>My Profile</a></li>
@@ -74,7 +74,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 						<h4 class=\"modal-title\">Upload a profile picture</h4>
 						</div>
 						<div class=\"modal-body\">
-						<form action=\"http://localhost:8080/Alumni-Tracker/index.php/alumni/propic\" method=\"post\" enctype=\"multipart/form-data\">
+						<form action=\"http://alumnit.azurewebsites.net/index.php/alumni/propic\" method=\"post\" enctype=\"multipart/form-data\">
 							Your Photo: <input type=\"file\" name=\"photo\" size=\"25\" />
 							<input type=\"submit\" name=\"submit\" value=\"Submit\" />
 						</form>
