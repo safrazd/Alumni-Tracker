@@ -36,7 +36,7 @@ if($_FILES['photo']['name'])
 			$ext = end((explode(".", $new_file_name)));
 			
 			//move it to where we want it to be
-			move_uploaded_file($_FILES['photo']['tmp_name'], 'http://alumnit.azurewebsites.net/images/'.$id.".".$ext);
+			move_uploaded_file($_FILES['photo']['tmp_name'], 'https://github.com/safrazd/Alumni-Tracker/tree/master/images/'.$id.".".$ext);
 			$sql2="UPDATE link
 			SET image='$id.$ext'
 			WHERE alumniId=$id;";
