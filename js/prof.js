@@ -173,7 +173,7 @@ $(function () {
             
         };
        
-        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company_info_tab",data,function(response){
+        $.post("http://alumnit.azurewebsites.net/index.php/alumni/company_info_tab",data,function(response){
             
             response=JSON.parse(response);
            
@@ -195,7 +195,7 @@ $(function () {
          var data={
             comment:$("#comment").val()
          };
-          $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/interest",data,function(response){
+          $.post("http://alumnit.azurewebsites.net/index.php/alumni/interest",data,function(response){
               response=JSON.parse(response);
               if(response.status=="success"){
                 console.log("success");
@@ -216,7 +216,7 @@ $(function () {
             li:$("#li").val(),
             tr:$("#tr").val()
          };
-          $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/social",data,function(response){
+          $.post("http://alumnit.azurewebsites.net/index.php/alumni/social",data,function(response){
               response=JSON.parse(response);
               if(response.status=="success"){
                 console.log("success");
