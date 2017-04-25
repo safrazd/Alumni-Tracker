@@ -31,11 +31,15 @@ $(function () {
                 
             //Just for desplay
             isChecked = $input.is(':checked') ? 'checked' : 'not Checked';
+            
              
         }
         
         updateDisplay();
     });
+
+    
+
 
 
     //setting company tab to visible
@@ -60,7 +64,9 @@ $(function () {
             if(response.status=="success"){
                 console.log("success");
                 console.log(response.button);
+                
                 togglecheck=response.button
+                location.reload();
                 
             }else{
                 console.log(response);
@@ -145,6 +151,7 @@ $(function () {
             if(response.status=="success"){
                 console.log("success");
                 console.log(response.button);
+                location.reload();
             }else{
                 console.log(response);
             }
@@ -153,6 +160,75 @@ $(function () {
 
          
         
+
+    })
+        $("#social").click(function(){
+         var data={
+            Company_Name:$("#Company_Name").val(),
+            About_Company:$("#About_Company").val(),
+            Country_Employed:$("#Country_Employed").val(),
+            Company_Email:$("#Company_Email").val(),
+            
+            
+            
+        };
+       
+        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company_info_tab",data,function(response){
+            
+            response=JSON.parse(response);
+           
+            if(response.status=="success"){
+                console.log("success");
+                console.log(response.button);
+                location.reload();
+            }else{
+                console.log(response);
+            }
+        })
+
+
+         
+        
+
+    })
+    $("#post_interest").click(function(){
+         var data={
+            comment:$("#comment").val()
+         };
+          $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/interest",data,function(response){
+              response=JSON.parse(response);
+              if(response.status=="success"){
+                console.log("success");
+                console.log(response.button);
+                location.reload();
+            }else{
+                console.log(response);
+            }
+
+          })
+
+
+    })
+        
+        $("#social_submit").click(function(){
+         var data={
+            fb:$("#fb").val(),
+            li:$("#li").val(),
+            tr:$("#tr").val()
+         };
+          $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/social",data,function(response){
+              response=JSON.parse(response);
+              if(response.status=="success"){
+                console.log("success");
+                console.log(response.button);
+                location.reload();
+            }else{
+                console.log(response);
+            }
+
+          })
+
+
     })
     
 });

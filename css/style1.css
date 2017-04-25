@@ -135,6 +135,9 @@ body {
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 50%;
+  
+}
+.btn-right{
   float:right;
 }
 #post_button{
@@ -151,7 +154,29 @@ body {
 #company_button{
   margin-top:20px;
 }
+#social_button{
+  margin-top:20px;
+}
+.bottom-column
+{
+    margin-top:130px;
+   
+    font-family:Verdana;
+}
 
+.bottom-column-view
+{
+margin-bottom:30px;
+
+    
+}
+.social-size{
+  height:40px;
+  width:40px;
+}
+.social_edit{
+  cursor:pointer;
+}
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
 .input-group-addon.beautiful input[type="checkbox"],

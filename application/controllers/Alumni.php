@@ -64,6 +64,23 @@ public function contact()
 		$this->load->view('alumni_contact');
 
 	}
+	public function social()
+	{	
+		$this->load->model('social');
+		$this->social->social();
+	}
+	public function propic()
+	{	
+		$this->load->model('propic');
+		$this->propic->propic();
+	}
+		public function interest()
+	{	
+		$this->load->model('interest');
+		$this->interest->interest();
+	}
 
 }
+
+
 ?>

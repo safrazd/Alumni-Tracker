@@ -16,6 +16,7 @@ $sql="SELECT *
  LEFT JOIN degree ON alumni.alumniId=degree.alumniId)
  LEFT JOIN link ON alumni.alumniId=link.alumniId
  LEFT JOIN personal ON alumni.alumniId=personal.alumniId
+ LEFT JOIN interest ON alumni.alumniId=interest.alumniId
  WHERE alumni.alumniId='$alumniId';";
  //$res=$con->query($sql);
  $res = $this->db->query($sql);
@@ -35,8 +36,8 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
           <ul class=\"nav navbar-nav\" id='pad'>
             <li><a href='".site_url('alumni')."'>Alumni</a></li>
-            <li><a href='".site_url('alumni/about')."'>About</a></li>
-            <li><a href='".site_url('alumni/contact')."'>Contact</a></li>
+            <li><a href=\"index.html\">About</a></li>
+            <li><a href=\"contact.html\">Contact</a></li>
           </ul>
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
 		  <li><a href='".site_url('alumni/myprofile')."'>My Profile</a></li>
@@ -63,14 +64,13 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 						".$row["fName"]." ".$row["lName"]."
 					</div>
 					<div class=\"profile-usertitle-job\">
-						Developer
+						
 					</div>
 				</div>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class=\"profile-userbuttons\">
-					<button type=\"button\" class=\"btn btn-success btn-sm\">Follow</button>
-					<button type=\"button\" class=\"btn btn-danger btn-sm\">Message</button>
+					
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
@@ -105,21 +105,41 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
             <div class=\"profile-content\">
 				<div class=\"tab-content\">
 					<div class=\"tab-pane active text-style\" id=\"tab1\">
-						<form>
-						<div class=\"form-group\">
-							<textarea class=\"form-control\" rows=\"5\" id=\"comment\" placeholder=\"Enter some interest...\"></textarea>
-							<div class=\"row\" id=\"post_button\">
-								<div class=\"col-md-4\"> </div>
-								<div class=\"col-md-4 text-center\"> 
-									<button type=\"button\" class=\"btn btn-primary \">Post</button>	
-								</div>
-								<div class=\"col-md-4\"> </div>
-							</div>
-						</div>
-						</form>		
-					</div>
 						
+						
+								
+									".$row["interest"]."	
+								
+						
+					<div class=\"row \">
+						<div class=\"col-md-4 text-center bottom-column-view\"></div>
+
+						<div class=\"col-md-4 text-center bottom-column-view\">
+						";
+						if(($row["facebook"]!="")&&($row["linkedin"]!="")&&($row["tumblr"]!="")){
+						echo"Connect With Me";}
+						echo"
+						</div>
+						<div class=\"col-md-4 text-center bottom-column-view\"></div>
+					</div>
+					<div class=\"row\">
+					";
+					if($row["facebook"]!=""){
+						echo"
+						<div class=\"col-md-4 text-center \"><a href=\"".$row["facebook"]."\"><img src=\"".base_url()."images/facebook.png\" class=\"social-size\"></a></div>
+					";}
+					if($row["linkedin"]!=""){
+						echo"
+						<div class=\"col-md-4 text-center \"><a href=\"".$row["linkedin"]."\"><img src=\"".base_url()."images/linkedin.png\" class=\"social-size\"></a></div>
+					";}
+					if($row["tumblr"]!=""){
+						echo"
+						<div class=\"col-md-4 text-center \"><a href=\"".$row["tumblr"]."\"><img src=\"".base_url()."images/tumblr.png\" class=\"social-size\"></a></div>
 					
+					";}
+						echo"
+					</div>
+					</div>
 					<div class=\"tab-pane text-style\" id=\"tab3\">
 							<div class=\"row \">
                             <div class=\"col-md-6\"><h4>Occupation </h4>
@@ -138,6 +158,9 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 							<p class=\"graduate\">".$row["yearGrad"]."</p>
 							</div>
                         </div>
+						";
+						if($row["display_personal"]=="true"){
+						echo"
                         <div class=\"row profileinfo\">
                     
 							<div class=\"col-md-6\"><h4>Email </h4>
@@ -161,6 +184,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 					
 					
 					";
+						}
 					if($row["company_visible"]=="checked"){
 				echo"
 					<div class=\"tab-pane text-style\" id=\"tab4\">

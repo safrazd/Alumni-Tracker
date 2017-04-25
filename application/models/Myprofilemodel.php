@@ -16,8 +16,10 @@ $sql="SELECT *
  LEFT JOIN company ON alumni.alumniId=company.alumniId)
  LEFT JOIN degree ON alumni.alumniId=degree.alumniId)
 LEFT JOIN personal ON alumni.alumniId=personal.alumniId)
+ LEFT JOIN interest ON alumni.alumniId=interest.alumniId
 INNER JOIN link ON alumni.alumniId=link.alumniId
  WHERE alumni.alumniId='".$id."';";
+
 //  $res=$con->query($sql);
  $res = $this->db->query($sql);
 
@@ -38,8 +40,8 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
         <div id=\"navbar\" class=\"collapse navbar-collapse\" >
           <ul class=\"nav navbar-nav\" id='pad'>
             <li><a href='".site_url('alumni')."'>Alumni</a></li>
-            <li><a href='".site_url('alumni/about')."'>About</a></li>
-            <li><a href='".site_url('alumni/contact')."'>Contact</a></li>
+            <li><a href=\"index.html\">About</a></li>
+            <li><a href=\"contact.html\">Contact</a></li>
           </ul>
 		  <ul  class=\"nav navbar-nav\" id='pad1' style='position:relative;float:right;'>
 		  <li class = \"active\" ><a href='".site_url('alumni/myprofile')."'>My Profile</a></li>
@@ -55,8 +57,37 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 			<div class=\"profile-sidebar\">
 				<!-- SIDEBAR USERPIC -->
 				<div class=\"profile-userpic\">
-					<img src='" .base_url()."images/".$row['image']."' 	alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
+					<a data-toggle=\"modal\"  data-target=\"#profpic\"> <img src='" .base_url()."images/".$row['image']."' 	alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\"></a>
 				</div>
+				
+
+			
+
+				<!-- Modal -->
+				<div class=\"modal fade\" id=\"profpic\" role=\"dialog\">
+					<div class=\"modal-dialog\">
+					
+					<!-- Modal content-->
+					<div class=\"modal-content\">
+						<div class=\"modal-header\">
+						<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+						<h4 class=\"modal-title\">Upload a profile picture</h4>
+						</div>
+						<div class=\"modal-body\">
+						<form action=\"http://localhost:8080/Alumni-Tracker/index.php/alumni/propic\" method=\"post\" enctype=\"multipart/form-data\">
+							Your Photo: <input type=\"file\" name=\"photo\" size=\"25\" />
+							<input type=\"submit\" name=\"submit\" value=\"Submit\" />
+						</form>
+						</div>
+						<div class=\"modal-footer\">
+						<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+						</div>
+					</div>
+					
+					</div>
+				</div>
+
+
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				<div class=\"profile-usertitle\">
@@ -70,8 +101,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class=\"profile-userbuttons\">
-					<button type=\"button\" class=\"btn btn-success btn-sm\">Follow</button>
-					<button type=\"button\" class=\"btn btn-danger btn-sm\">Message</button>
+					
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
@@ -116,9 +146,48 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 								</div>
 								<div class=\"col-md-4\"> </div>
 							</div>
-						</div>
-						</form>		
+							
+							<div class=\"row \" id=\"post_button\" >
+							
+								<div class=\"col-md-4\"> </div>
+								<div class=\"col-md-4 text-center\" > 
+									<button type=\"button\" class=\"btn btn-info btn-circle \" data-toggle=\"collapse\" data-target=\"#demo\" ></button>
+								</div>
+										
+								
+								<div class=\"col-md-4\"> </div>
+							</div>
+						<div id=\"demo\" class=\"collapse text-center\">
+										<h4>Your Post</h4>
+										".$row["interest"]."
+									</div>
+						</form>
+
 					</div>
+					<div class=\"row page-header\">
+						<div class=\"col-md-4 text-center bottom-column\"></div>
+						<div class=\"col-md-4 text-center bottom-column\">Social links(<a class=\"social_edit\" data-toggle=\"collapse\" data-target=\".social_sub\">edit?</a>)</div>
+						<div class=\"col-md-4 text-center bottom-column\"></div>
+					</div>
+					<form>
+					<div class=\"row text-center\">
+						<div class=\"col-md-4 text-center \"><a href=\"".$row["facebook"]."\"><img src=\"".base_url()."images/facebook.png\" class=\"social-size\"></a><br>
+						<div   class=\"collapse social_sub\"><input type=\"text\" id=\"fb\" name=\"fb\"></input></div>
+						</div>
+						<div class=\"col-md-4 text-center \"><a href=\"".$row["linkedin"]."\"><img src=\"".base_url()."images/linkedin.png\" class=\"social-size\"  style=\"text-align:center\" id=\"linkedin\"></a><br>
+						<div  class=\"collapse social_sub\"><input type=\"text\" id=\"li\" name=\"li\"></input>
+						<br>
+						</div>
+								<div class=\"collapse social_sub\">
+									<br><button type=\"button\" class=\"btn btn-info btn-circle \"  id=\"social_submit\"><i class=\"glyphicon glyphicon-ok\"></i></button>
+								</div>
+						</div>
+						<div class=\"col-md-4 text-center \"><a href=\"".$row["tumblr"]."\"><img src=\"".base_url()."images/tumblr.png\" class=\"social-size\" ></a><br>
+						<div   class=\"collapse social_sub\"><input type=\"text\" id=\"tr\" name=\"tr\"></input></div>
+						</div>
+					</div>
+					</div>
+					</form>
 					<div class=\"tab-pane text-style\" id=\"tab2\">
 						
 							<div class=\"row\">
@@ -153,7 +222,9 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 								<div class=\"col-md-4\" > <input class=\"btn btn-primary\" value=\"save\" type=\"button\" id=\"settings\"></input></div>
 								<div class=\"col-md-4\"></div>
 							</div>
+							
 							</form>
+							
 						</div>			
 									
 					
@@ -165,7 +236,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 						<div class=\"row \">
                             <div class=\"col-md-12\">
                                 
-								<button type=\"button\" class=\"btn btn-info btn-circle\" data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"glyphicon glyphicon-ok\"></i></button>
+								<button type=\"button\" class=\"btn btn-info btn-circle btn-right\" data-toggle=\"modal\" data-target=\"#myModal\"><i class=\"glyphicon glyphicon-ok\"></i></button>
 							
 								<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">
 									<div class=\"modal-dialog\" role=\"document\">
@@ -283,18 +354,23 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
                         <div class=\"row profileinfo\">
                             
 							";
-							if($row["display_personal"]=="true"){
+							if($row["display_personal"]=="false"){
+								$style="style=\"color:grey;\"";
+							}else{
+								
+								$style="";
+							}
 							echo"
 							<div class=\"col-md-6\"><h4>Email </h4>
-							<p class=\"email\">".$row["email"]."</p>
+							<p class=\"email\" $style>".$row["email"]."</p>
 							</div>
 							<div class=\"col-md-6\"><h4>Country of Birth </h4>
-							<p class=\"birth\">".$row["birthCountry"]."</p>
+							<p class=\"birth\" $style>".$row["birthCountry"]."</p>
 							</div>
                         </div>
                         <div class=\"row profileinfo\">
 							<div class=\"col-md-6\"><h4>Contact Number</h4>
-                                <p class=\"phone_number\" >".$row["contactNo"]."</p>
+                                <p class=\"phone_number\" $style>".$row["contactNo"]."</p>
 							</div>
 							
                         </div>  
@@ -305,7 +381,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 
                     echo"
                     <div class=\"tab-pane text-style\" id=\"tab4\">
-                    <button type=\"button\" class=\"btn btn-info btn-circle\" data-toggle=\"modal\" data-target=\"#country_modal\"><i class=\"glyphicon glyphicon-ok\"></i></button>  
+                    <button type=\"button\" class=\"btn btn-info btn-circle btn-right\" data-toggle=\"modal\" data-target=\"#country_modal\"><i class=\"glyphicon glyphicon-ok\"></i></button>  
                         <div class=\"page-header \">
                             <h1 class=\"text-center company_name_page\">".$row["companyName"]."</h1>      
                         </div>
@@ -400,7 +476,7 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 	</div>
 </div>
 ";
-                            }
+                            
    }
    }else{
        echo"error";
