@@ -61,7 +61,7 @@
 				<input type="text" name="email" placeholder="Email" value=""<br>
 				<input type="password" name="password" placeholder="Password" value = ""><br>
 				<input type="submit" id="sub" value="Login">
-				<input type="button" onclick="window.location ='<?php echo site_url('register/register')?>'" value="Register">
+				<input type="button" onclick="window.location ='<?php echo site_url('register')?>'" value="Register">
 				
 		</div>
 	</form>
