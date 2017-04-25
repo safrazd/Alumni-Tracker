@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2017 at 03:33 AM
+-- Generation Time: Apr 25, 2017 at 03:44 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `alumnit`
 --
+CREATE DATABASE IF NOT EXISTS `alumnit` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `alumnit`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
+DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `adminId` int(20) NOT NULL,
   `fName` varchar(50) NOT NULL,
@@ -48,6 +51,7 @@ INSERT INTO `admin` (`adminId`, `fName`, `lName`, `email`, `password`, `timeCrea
 -- Table structure for table `alumni`
 --
 
+DROP TABLE IF EXISTS `alumni`;
 CREATE TABLE `alumni` (
   `alumniId` int(20) NOT NULL,
   `fName` varchar(50) DEFAULT NULL,
@@ -74,6 +78,7 @@ INSERT INTO `alumni` (`alumniId`, `fName`, `lName`, `email`, `password`, `timeCr
 -- Table structure for table `company`
 --
 
+DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
   `companyId` int(20) NOT NULL,
   `companyName` varchar(50) NOT NULL,
@@ -98,6 +103,7 @@ INSERT INTO `company` (`companyId`, `companyName`, `companyDescription`, `compan
 -- Table structure for table `degree`
 --
 
+DROP TABLE IF EXISTS `degree`;
 CREATE TABLE `degree` (
   `degreeId` int(20) NOT NULL,
   `degreeName` varchar(50) NOT NULL,
@@ -121,6 +127,7 @@ INSERT INTO `degree` (`degreeId`, `degreeName`, `degreeClass`, `yearGrad`, `alum
 -- Table structure for table `interest`
 --
 
+DROP TABLE IF EXISTS `interest`;
 CREATE TABLE `interest` (
   `interestId` int(11) NOT NULL,
   `alumniId` int(20) NOT NULL,
@@ -140,6 +147,7 @@ INSERT INTO `interest` (`interestId`, `alumniId`, `interest`) VALUES
 -- Table structure for table `link`
 --
 
+DROP TABLE IF EXISTS `link`;
 CREATE TABLE `link` (
   `linkId` int(20) NOT NULL,
   `image` varchar(100) NOT NULL,
@@ -163,6 +171,7 @@ INSERT INTO `link` (`linkId`, `image`, `facebook`, `linkedin`, `tumblr`, `alumni
 -- Table structure for table `personal`
 --
 
+DROP TABLE IF EXISTS `personal`;
 CREATE TABLE `personal` (
   `personalId` int(20) NOT NULL,
   `contactNo` varchar(20) NOT NULL,
