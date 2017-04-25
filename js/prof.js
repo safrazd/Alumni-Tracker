@@ -57,7 +57,7 @@ $(function () {
             
         };
        
-        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company",data,function(response){
+        $.post("http://alumnit.azurewebsites.net/index.php/alumni/company",data,function(response){
             
             response=JSON.parse(response);
            
@@ -114,7 +114,7 @@ $(function () {
             
         };
        
-        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/aboutus",data,function(response){
+        $.post("http://alumnit.azurewebsites.net/index.php/alumni/aboutus",data,function(response){
             
             response=JSON.parse(response);
            
@@ -144,7 +144,7 @@ $(function () {
             
         };
        
-        $.post("http://localhost:8080/Alumni-Tracker/index.php/alumni/company_info_tab",data,function(response){
+        $.post("http://alumnit.azurewebsites.net/index.php/alumni/company_info_tab",data,function(response){
             
             response=JSON.parse(response);
            
