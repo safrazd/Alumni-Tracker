@@ -57,8 +57,37 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 			<div class=\"profile-sidebar\">
 				<!-- SIDEBAR USERPIC -->
 				<div class=\"profile-userpic\">
-					<img src='" .base_url()."images/".$row['image']."' 	alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\">
+					<a data-toggle=\"modal\"  data-target=\"#profpic\"> <img src='" .base_url()."images/".$row['image']."' 	alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\"></a>
 				</div>
+				
+
+			
+
+				<!-- Modal -->
+				<div class=\"modal fade\" id=\"profpic\" role=\"dialog\">
+					<div class=\"modal-dialog\">
+					
+					<!-- Modal content-->
+					<div class=\"modal-content\">
+						<div class=\"modal-header\">
+						<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
+						<h4 class=\"modal-title\">Upload a profile picture</h4>
+						</div>
+						<div class=\"modal-body\">
+						<form action=\"http://localhost:8080/Alumni-Tracker/index.php/alumni/propic\" method=\"post\" enctype=\"multipart/form-data\">
+							Your Photo: <input type=\"file\" name=\"photo\" size=\"25\" />
+							<input type=\"submit\" name=\"submit\" value=\"Submit\" />
+						</form>
+						</div>
+						<div class=\"modal-footer\">
+						<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+						</div>
+					</div>
+					
+					</div>
+				</div>
+
+
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				<div class=\"profile-usertitle\">

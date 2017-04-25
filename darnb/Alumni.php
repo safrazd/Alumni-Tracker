@@ -55,10 +55,15 @@ public function profile()
 		$this->load->model('alumniprofile');
 		$this->alumniprofile->profile();
 	}
-		public function social()
+	public function social()
 	{	
 		$this->load->model('social');
 		$this->social->social();
+	}
+	public function propic()
+	{	
+		$this->load->model('propic');
+		$this->propic->propic();
 	}
 
 }
