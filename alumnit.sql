@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2017 at 06:40 AM
+-- Generation Time: Apr 25, 2017 at 03:44 AM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `alumnit`
 --
-CREATE DATABASE IF NOT EXISTS `alumnit` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `alumnit`;
+CREATE DATABASE IF NOT EXISTS `sql10166023` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `sql10166023`;
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`companyId`, `companyName`, `companyDescription`, `company_email`, `country`, `occupation`, `alumniId`, `company_visible`) VALUES
-(2, 'ewqe', '', '', '', 'Student', 2, 'checked');
+(2, 'Terasia', '', '', '', 'Student', 2, 'checked');
 
 -- --------------------------------------------------------
 
@@ -124,6 +124,26 @@ INSERT INTO `degree` (`degreeId`, `degreeName`, `degreeClass`, `yearGrad`, `alum
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `interest`
+--
+
+DROP TABLE IF EXISTS `interest`;
+CREATE TABLE `interest` (
+  `interestId` int(11) NOT NULL,
+  `alumniId` int(20) NOT NULL,
+  `interest` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `interest`
+--
+
+INSERT INTO `interest` (`interestId`, `alumniId`, `interest`) VALUES
+(1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin iaculis arcu nec tortor condimentum pretium. Nunc in tempor elit. Fusce viverra orci malesuada congue sagittis. Morbi sed mauris vitae tellus volutpat dignissim. Cras non metus maximus, sceler');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `link`
 --
 
@@ -133,6 +153,7 @@ CREATE TABLE `link` (
   `image` varchar(100) NOT NULL,
   `facebook` varchar(100) NOT NULL,
   `linkedin` varchar(100) NOT NULL,
+  `tumblr` varchar(100) NOT NULL,
   `alumniId` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -140,9 +161,9 @@ CREATE TABLE `link` (
 -- Dumping data for table `link`
 --
 
-INSERT INTO `link` (`linkId`, `image`, `facebook`, `linkedin`, `alumniId`) VALUES
-(2, 'pic1.jpg', '', '', 2),
-(3, 'pic2.jpg', '', '', 1);
+INSERT INTO `link` (`linkId`, `image`, `facebook`, `linkedin`, `tumblr`, `alumniId`) VALUES
+(2, '2.jpg', 'https://www.facebook.com/darnell.bruce.9', 'https://www.linkedin.com/uas/login', 'tub', 2),
+(3, 'pic2.jpg', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -198,6 +219,13 @@ ALTER TABLE `degree`
   ADD KEY `alumniId_2` (`alumniId`);
 
 --
+-- Indexes for table `interest`
+--
+ALTER TABLE `interest`
+  ADD PRIMARY KEY (`interestId`),
+  ADD KEY `alumniId` (`alumniId`);
+
+--
 -- Indexes for table `link`
 --
 ALTER TABLE `link`
@@ -235,6 +263,11 @@ ALTER TABLE `company`
 --
 ALTER TABLE `degree`
   MODIFY `degreeId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `interest`
+--
+ALTER TABLE `interest`
+  MODIFY `interestId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `link`
 --
