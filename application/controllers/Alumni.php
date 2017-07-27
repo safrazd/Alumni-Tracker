@@ -80,6 +80,11 @@ public function contact()
 		$this->interest->interest();
 	}
 
+		public function upload()
+	{
+		$this->load->model('upload');
+		$this->upload->upload();	
+	}
 }
 
 

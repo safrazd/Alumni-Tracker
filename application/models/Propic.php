@@ -36,14 +36,14 @@ if($_FILES['photo']['name'])
 			$ext = end((explode(".", $new_file_name)));
 			
 			//move it to where we want it to be
-			move_uploaded_file($_FILES['photo']['tmp_name'], 'http://alumnit.azurewebsites.net/images/'.$id.".".$ext);
+			move_uploaded_file($_FILES['photo']['tmp_name'], 'http://localhost/AlumniTracker/images/'.$id.".".$ext);
 			$sql2="UPDATE link
 			SET image='$id.$ext'
 			WHERE alumniId=$id;";
 			$this->db->query($sql2);
 			$message = 'Congratulations!  Your file was accepted.';
 
-			header('Location: '.'http://alumnit.azurewebsites.net/index.php/alumni/myprofile');
+			header('Location: '.'http://localhost/AlumniTracker/alumni/myprofile');
 		}
 	}
 	//if there is an error...

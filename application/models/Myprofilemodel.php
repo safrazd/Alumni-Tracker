@@ -1,4 +1,7 @@
 <?php
+require 'cloudinary/Cloudinary.php';
+require 'cloudinary/Uploader.php';
+require 'cloudinary/Api.php';
 
 Class Myprofilemodel extends CI_Model { 
 
@@ -7,7 +10,14 @@ function __construct() {
          $this->load->helper('url'); 
          $this->load->database(); 
       } 
+	  
 function profile(){
+\Cloudinary::config(array( 
+  "cloud_name" => "alumnit", 
+  "api_key" => "116371315411181", 
+  "api_secret" => "SUC_Y5t2VsLcsQW_gTxIOG_itGQ" 
+));
+
 $id= $this->session->userdata['logged_in']['alumniId']; //fetching alumnid of logged in user
 // require("company_info.php");
 // require("dbconnect.php");
@@ -56,38 +66,26 @@ echo"<nav class=\"navbar navbar-inverse navbar-default\">
 		<div class=\"col-md-3\">
 			<div class=\"profile-sidebar\">
 				<!-- SIDEBAR USERPIC -->
-				<div class=\"profile-userpic\">
-					<a data-toggle=\"modal\"  data-target=\"#profpic\"> <img src='" .base_url()."images/".$row['image']."' 	alt=\"Lights\" style=\"width:80%; height:150px\" class=\"img-responsive\"></a>
-				</div>
+				<form action='".site_url('alumni/upload')."' method='post' enctype='multipart/form-data'> 
+					<input type='file' name='photo' >
+					<input type='submit' value='Upload Image' name='submit'>
+				</form>";
 				
-
-			
-
-				<!-- Modal -->
-				<div class=\"modal fade\" id=\"profpic\" role=\"dialog\">
-					<div class=\"modal-dialog\">
+				$api = new \Cloudinary\Api();
+				$result = $api->resources_by_ids(array("2"));
+				$image_url = $result['resources'][0]['url'];
+				echo cl_image_tag($image_url, array("type"=>"fetch"));
+				//echo cl_image_tag($id.'.jpg');
+				
+				echo "
+			<div class=\"modal fade\" id=\"profpic\" role=\"dialog\">
+				<div class=\"modal-dialog\">
 					
-					<!-- Modal content-->
-					<div class=\"modal-content\">
-						<div class=\"modal-header\">
-						<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>
-						<h4 class=\"modal-title\">Upload a profile picture</h4>
-						</div>
-						<div class=\"modal-body\">
-						<form action=\"http://alumnit.azurewebsites.net/index.php/alumni/propic\" method=\"post\" enctype=\"multipart/form-data\">
-							Your Photo: <input type=\"file\" name=\"photo\" size=\"25\" />
-							<input type=\"submit\" name=\"submit\" value=\"Submit\" />
-						</form>
-						</div>
-						<div class=\"modal-footer\">
-						<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
-						</div>
-					</div>
-					
-					</div>
+				
+				</div>
 				</div>
 
-
+				
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				<div class=\"profile-usertitle\">
